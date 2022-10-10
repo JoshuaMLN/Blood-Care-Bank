@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class ConexionBaseDatos {
     
-
+    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     //a
     public static String url = "jdbc:mysql://localhost/rememberme";
     public static String usuario = "root";
