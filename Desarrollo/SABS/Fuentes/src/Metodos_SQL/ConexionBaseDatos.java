@@ -9,6 +9,7 @@ public class ConexionBaseDatos {
     
     //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     //crm
+    //asda
     //a
     public static String url = "jdbc:mysql://localhost/rememberme";
     public static String usuario = "root";
