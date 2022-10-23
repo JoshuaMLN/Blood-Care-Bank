@@ -2,19 +2,19 @@
 package Modelo;
 
 
-public class Empleado extends Persona {
+public class Donante extends Persona {
     private String especialidad;
     private static int contador=0;
     private int codigo;
-    private float sueldo;
+    private int edad;
 
     
-    public Empleado(String especialidad,float sueldo, String nombre, String apellido, String DNI, int telefono) {
+    public Donante(String especialidad,int edad, String nombre, String apellido, String DNI, int telefono) {
         super(nombre, apellido, DNI, telefono);
         this.codigo = contador;
         contador++;
         this.especialidad = especialidad;
-        this.sueldo = sueldo;
+        this.edad = edad;
     }
 
     public String getEspecialidad() {
@@ -33,13 +33,15 @@ public class Empleado extends Persona {
         this.codigo = codigo;
     }
 
-    public float getSueldo() {
-        return sueldo;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setSueldo(float sueldo) {
-        this.sueldo = sueldo;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
+
+    
 
     public int getTelefono() {
         return telefono;

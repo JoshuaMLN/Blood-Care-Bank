@@ -2,19 +2,19 @@
 package Modelo;
 
 
-public class EmpleadoArreglo {
-    private Empleado[] empleados;
+public class DonanteArreglo {
+    private Donante[] empleados;
     private int indice;
     private final String[] cabecera =  {"CODIGO","NOMBRE",
-                            "APELLIDO","DNI", "TELEFONO",
-                            "ESPECIALIDAD", "SUELDO"};
+                            "FECHA NAC.","DNI", "TELEFONO",
+                            "CORREO", "EDAD"};
     
-    public EmpleadoArreglo(int tamano) {
-        this.empleados = new Empleado[tamano];
+    public DonanteArreglo(int tamano) {
+        this.empleados = new Donante[tamano];
         this.indice = 0;
     }
     
-    public void agregar(Empleado empleado){
+    public void agregar(Donante empleado){
         this.empleados[this.indice] = empleado;
         this.indice++; 
     }
@@ -57,7 +57,7 @@ public class EmpleadoArreglo {
                 resultado[indice][3] = this.empleados[indice].getDNI();
                 resultado[indice][4] = this.empleados[indice].getTelefono();
                 resultado[indice][5] = this.empleados[indice].getEspecialidad();
-                resultado[indice][6] = this.empleados[indice].getSueldo();
+                resultado[indice][6] = this.empleados[indice].getEdad();
                 
             }
         }
@@ -65,8 +65,8 @@ public class EmpleadoArreglo {
     }
     
     //devolver empleado a partir de su codigo
-    public Empleado devolverEmpleado(int codigo) {
-        Empleado resultado = null;
+    public Donante devolverEmpleado(int codigo) {
+        Donante resultado = null;
          for(int i=0; i < empleados.length; i++){
             if( codigo==this.empleados[i].getCodigo() ) {
                 resultado = this.empleados[i];
@@ -77,10 +77,10 @@ public class EmpleadoArreglo {
     }
     
     
-    public Empleado[] getDatosCombo() {
-        Empleado resultado[] = null;
+    public Donante[] getDatosCombo() {
+        Donante resultado[] = null;
         if (!isVacio()) {
-            resultado = new Empleado[this.indice];
+            resultado = new Donante[this.indice];
             for (int i = 0; i < this.indice; i++) {
                 resultado[i] = this.empleados[i];
             }

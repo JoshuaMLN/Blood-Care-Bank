@@ -8,12 +8,12 @@ package Vista;
  *
  * @author jvrui
  */
-public class frmEmpleado extends javax.swing.JFrame {
+public class frmDonantes extends javax.swing.JFrame {
 
     /**
      * Creates new form frmClientePersona
      */
-    public frmEmpleado() {
+    public frmDonantes() {
         initComponents();
         this.setLocationRelativeTo(null); 
     }
@@ -33,7 +33,7 @@ public class frmEmpleado extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombreDonante = new javax.swing.JTextField();
-        txtApellidoEmpleado = new javax.swing.JTextField();
+        txtFechaNacimiento = new javax.swing.JTextField();
         txtDNIEmpleado = new javax.swing.JTextField();
         lblTelefonoEmpleado = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -73,7 +73,7 @@ public class frmEmpleado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtNombreDonante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, -1));
-        jPanel1.add(txtApellidoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 120, -1));
+        jPanel1.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 120, -1));
         jPanel1.add(txtDNIEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 120, -1));
         jPanel1.add(lblTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
 
@@ -143,14 +143,22 @@ public class frmEmpleado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmDonantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmDonantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmDonantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmDonantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -163,7 +171,7 @@ public class frmEmpleado extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmEmpleado().setVisible(true);
+                new frmDonantes().setVisible(true);
             }
         });
     }
@@ -185,10 +193,10 @@ public class frmEmpleado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField lblTelefonoEmpleado;
     public javax.swing.JTable tblEmpleadoRepo;
-    public javax.swing.JTextField txtApellidoEmpleado;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDNIEmpleado;
     public javax.swing.JTextField txtEdad;
+    public javax.swing.JTextField txtFechaNacimiento;
     public javax.swing.JTextField txtNombreDonante;
     // End of variables declaration//GEN-END:variables
 }

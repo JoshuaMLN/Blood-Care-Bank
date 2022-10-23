@@ -27,14 +27,19 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnEmpleados = new javax.swing.JButton();
+        btnDonantes = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnEmpleados.setText("Empleados");
+        btnDonantes.setText("Donantes");
+        btnDonantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDonantesActionPerformed(evt);
+            }
+        });
 
         lblUsuario.setText("jLabel1");
 
@@ -59,7 +64,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addComponent(btnSalir)
                         .addGap(165, 165, 165))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnEmpleados)
+                        .addComponent(btnDonantes)
                         .addGap(153, 153, 153))))
         );
         layout.setVerticalGroup(
@@ -70,7 +75,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(lblUsuario))
                 .addGap(97, 97, 97)
-                .addComponent(btnEmpleados)
+                .addComponent(btnDonantes)
                 .addGap(103, 103, 103)
                 .addComponent(btnSalir)
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -78,6 +83,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDonantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonantesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDonantesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,7 +131,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnEmpleados;
+    public javax.swing.JButton btnDonantes;
     public javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel lblUsuario;
