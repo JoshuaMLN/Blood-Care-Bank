@@ -58,7 +58,7 @@ public class frmDonantes extends javax.swing.JFrame {
         jLabel1.setText("Nombre: ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jLabel2.setText("Fecha Nacimiento");
+        jLabel2.setText("Correo:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         jLabel3.setText("DNI:");
@@ -73,6 +73,12 @@ public class frmDonantes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtNombreDonante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, -1));
+
+        txtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaNacimientoActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 120, -1));
         jPanel1.add(txtDNIEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 120, -1));
         jPanel1.add(lblTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
@@ -81,7 +87,7 @@ public class frmDonantes extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 120, -1));
 
-        jLabel6.setText("Correo:");
+        jLabel6.setText("Fecha Nacimiento:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 120, -1));
 
@@ -125,6 +131,10 @@ public class frmDonantes extends javax.swing.JFrame {
     private void txtNombreDonanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreDonanteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreDonanteActionPerformed
+
+    private void txtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaNacimientoActionPerformed
 
     /**
      * @param args the command line arguments
