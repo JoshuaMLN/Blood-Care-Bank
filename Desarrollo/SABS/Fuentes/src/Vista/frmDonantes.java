@@ -43,11 +43,13 @@ public class frmDonantes extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
+        btnEditarOK = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnEditar1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmpleadoRepo = new javax.swing.JTable();
+        tblDonanteRepo = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,18 +99,29 @@ public class frmDonantes extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCancelar.setText("Cancelar");
-        jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 160, 40));
+        jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 110, 40));
 
         btnRegistrar.setText("Registrar");
-        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 160, 40));
+        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
+
+        btnEditarOK.setText("Confirmar cambio");
+        btnEditarOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarOKActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditarOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 130, 40));
 
         btnEliminar.setText("Eliminar");
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 150, 40));
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 520, 60));
+        btnEditar1.setText("Editar");
+        jPanel2.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 70, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 710, 60));
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 250));
 
-        tblEmpleadoRepo.setModel(new javax.swing.table.DefaultTableModel(
+        tblDonanteRepo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -119,7 +132,7 @@ public class frmDonantes extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblEmpleadoRepo);
+        jScrollPane1.setViewportView(tblDonanteRepo);
 
         jPanel4.add(jScrollPane1);
 
@@ -135,6 +148,10 @@ public class frmDonantes extends javax.swing.JFrame {
     private void txtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaNacimientoActionPerformed
+
+    private void btnEditarOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarOKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +205,8 @@ public class frmDonantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnEditar1;
+    public javax.swing.JButton btnEditarOK;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
@@ -202,7 +221,7 @@ public class frmDonantes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField lblTelefonoEmpleado;
-    public javax.swing.JTable tblEmpleadoRepo;
+    public javax.swing.JTable tblDonanteRepo;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDNIEmpleado;
     public javax.swing.JTextField txtEdad;

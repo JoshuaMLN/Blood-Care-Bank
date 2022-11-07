@@ -4,16 +4,16 @@ package Modelo;
 //abstract 
 public abstract class Persona {
     protected String nombre;
-    protected String apellido;
+    protected String correo;
     protected String DNI;
     protected int telefono;
     
     
     //constructor, get ,set, 
 
-    public Persona(String nombre, String apellido, String DNI, int telefono) {
+    public Persona(String nombre, String correo, String DNI, int telefono) {
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.correo = correo;
         this.DNI = DNI;
         this.telefono = telefono;
               
@@ -27,13 +27,15 @@ public abstract class Persona {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
+
+    
 
     public String getDNI() {
         return DNI;

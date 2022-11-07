@@ -53,10 +53,10 @@ public class DonanteArreglo {
             for(int indice = 0; indice< this.indice;indice++){
                 resultado[indice][0] = this.empleados[indice].getCodigo();
                 resultado[indice][1] = this.empleados[indice].getNombre();
-                resultado[indice][2] = this.empleados[indice].getApellido();
+                resultado[indice][2] = this.empleados[indice].getCorreo();
                 resultado[indice][3] = this.empleados[indice].getDNI();
                 resultado[indice][4] = this.empleados[indice].getTelefono();
-                resultado[indice][5] = this.empleados[indice].getEspecialidad();
+                resultado[indice][5] = this.empleados[indice].getFechaNac();
                 resultado[indice][6] = this.empleados[indice].getEdad();
                 
             }
@@ -64,8 +64,8 @@ public class DonanteArreglo {
         return resultado;
     }
     
-    //devolver empleado a partir de su codigo
-    public Donante devolverEmpleado(int codigo) {
+    //devolver donante a partir de su codigo
+    public Donante devolverDonante(int codigo) {
         Donante resultado = null;
          for(int i=0; i < empleados.length; i++){
             if( codigo==this.empleados[i].getCodigo() ) {

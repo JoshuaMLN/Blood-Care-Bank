@@ -12,6 +12,8 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorRegistrarDonantes {
     private frmDonantes vista;
     private DonanteArreglo modelo;
+    
+    private int codEditar=0;//codigo del donante a editar
 
     public ControladorRegistrarDonantes(frmDonantes vista, DonanteArreglo modelo) {
         this.vista = vista;
@@ -35,8 +37,8 @@ public class ControladorRegistrarDonantes {
                                     vista.txtCorreo.getText(), vista.txtDNIEmpleado.getText(),
                                     numTelefono);
                             Repositorio.donantes.agregar(em);
-                            System.out.println("Empleado AGREGADO");
-                            JOptionPane.showMessageDialog(null, "Donante Agregada");
+                            System.out.println("Donante AGREGADO");
+                            JOptionPane.showMessageDialog(null, "Donante Agregado");
                             actualizarTabla();
                             limpiarCampos();
                         } catch (NumberFormatException ex1) {
@@ -50,6 +52,26 @@ public class ControladorRegistrarDonantes {
             }
         }      
         );
+        
+        this.vista.btnEliminar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int fila = vista.tblDonanteRepo.getSelectedRow();//seleccion de fila de la tabla
+                
+                //eliminar
+                if (fila == -1) {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un donante");
+                } else {
+                    int valor = Integer.parseInt(vista.tblDonanteRepo.getValueAt(fila, 0).toString());//codigo de donante
+                    Repositorio.donantes.eliminar(valor);//metodo para eliminar donantes
+                    actualizarTabla();//actualizamos
+                    System.out.println("Donante Eliminado");
+                    JOptionPane.showMessageDialog(null, "Donante Eliminado");
+                }
+
+            }
+        }
+        );
+        
         this.vista.btnCancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 ControladorPrincipal controlador = new ControladorPrincipal(Repositorio.usuario_validado, new frmPrincipal());
@@ -59,20 +81,82 @@ public class ControladorRegistrarDonantes {
                 }
             }
         );
-        this.vista.btnEliminar.addActionListener(new ActionListener() {
+        
+        
+        this.vista.btnEditar1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int fila = vista.tblEmpleadoRepo.getSelectedRow();//seleccion de fila de la tabla
+                int fila = vista.tblDonanteRepo.getSelectedRow();//seleccion de fila de la tabla
                 
                 //eliminar
                 if (fila == -1) {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar una empleado");
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un donante");
                 } else {
-                    int valor = Integer.parseInt(vista.tblEmpleadoRepo.getValueAt(fila, 0).toString());//codigo de donante
-                    Repositorio.donantes.eliminar(valor);//metodo para eliminar donantes
-                    actualizarTabla();//actualizamos
-                    System.out.println("Empleado Eliminado");
-                    JOptionPane.showMessageDialog(null, "Empleado Eliminado");
+                    int valor = Integer.parseInt(vista.tblDonanteRepo.getValueAt(fila, 0).toString());//codigo de donante
+                    codEditar=valor;
+                    Donante donante = modelo.devolverDonante(valor);
+                    llenarCampos(donante);
+                    
+                    //Desabilitamos los demas botones
+                    vista.btnCancelar.setEnabled(false);
+                    vista.btnEditar1.setEnabled(false);
+                    vista.btnEliminar.setEnabled(false);
+                    vista.btnRegistrar.setEnabled(false);
+                    //habilitamos el boton que confirma el cambio
+                    vista.btnEditarOK.setEnabled(true);
+
+                    JOptionPane.showMessageDialog(null, "Actualice los datos del donante");
+                    
                 }
+
+            }
+        }
+        );
+        
+        this.vista.btnEditarOK.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int numTelefono;
+                int edad;
+                //donante
+                Donante donante = modelo.devolverDonante(codEditar);
+                
+                if (vista.txtFechaNacimiento.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
+                        || vista.txtNombreDonante.getText().isEmpty() || vista.txtCorreo.getText().isEmpty()
+                        || vista.txtDNIEmpleado.getText().isEmpty() || vista.lblTelefonoEmpleado.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Complete todos los campos");
+                } else {
+                    try {
+                        numTelefono = Integer.parseInt(vista.lblTelefonoEmpleado.getText());
+                        try {
+                            edad = Integer.parseInt(vista.txtEdad.getText());
+                            donante.setNombre(vista.txtNombreDonante.getText());
+                            donante.setCorreo(vista.txtCorreo.getText());
+                            donante.setDNI(vista.txtDNIEmpleado.getText());
+                            donante.setTelefono(numTelefono);
+                            donante.setFechaNac(vista.txtFechaNacimiento.getText());
+                            donante.setEdad(edad);
+                            
+                            JOptionPane.showMessageDialog(null, "Donante editado");
+                            actualizarTabla();
+                            limpiarCampos();
+                            
+                            //activamos los demas botones
+                            vista.btnCancelar.setEnabled(true);
+                            vista.btnEditar1.setEnabled(true);
+                            vista.btnEliminar.setEnabled(true);
+                            vista.btnRegistrar.setEnabled(true);
+                            //habilitamos el boton que confirma el cambio
+                            vista.btnEditarOK.setEnabled(false);
+                            
+                            codEditar=0;
+                            
+                        } catch (NumberFormatException ex1) {
+                            JOptionPane.showMessageDialog(null, "Dato invalido");
+                        }
+                    } catch (NumberFormatException ex2) {
+                        JOptionPane.showMessageDialog(null, "Num. celular invalido");
+                    }
+                }
+                
 
             }
         }
@@ -82,7 +166,7 @@ public class ControladorRegistrarDonantes {
     public void actualizarTabla() {
         //lo del jtable
         DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
-        this.vista.tblEmpleadoRepo.setModel(modelotabla);
+        this.vista.tblDonanteRepo.setModel(modelotabla);
     }
     public void limpiarCampos(){
         this.vista.txtNombreDonante.setText("");
@@ -92,9 +176,18 @@ public class ControladorRegistrarDonantes {
         this.vista.txtFechaNacimiento.setText("");
         this.vista.txtEdad.setText("");
     }
+    public void llenarCampos(Donante donante){
+        this.vista.txtNombreDonante.setText(donante.getNombre());
+        this.vista.txtCorreo.setText(donante.getCorreo());
+        this.vista.txtDNIEmpleado.setText(donante.getDNI());
+        this.vista.lblTelefonoEmpleado.setText(String.valueOf(donante.getTelefono()));
+        this.vista.txtFechaNacimiento.setText(donante.getFechaNac());
+        this.vista.txtEdad.setText(String.valueOf(donante.getEdad()));
+    }
     public void iniciar() {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
+        vista.btnEditarOK.setEnabled(false);
         
         actualizarTabla();
     }

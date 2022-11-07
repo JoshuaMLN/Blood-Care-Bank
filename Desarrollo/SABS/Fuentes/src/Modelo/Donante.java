@@ -3,26 +3,26 @@ package Modelo;
 
 
 public class Donante extends Persona {
-    private String especialidad;
+    private String fechaNac;
     private static int contador=0;
     private int codigo;
     private int edad;
 
     
-    public Donante(String especialidad,int edad, String nombre, String apellido, String DNI, int telefono) {
-        super(nombre, apellido, DNI, telefono);
+    public Donante(String fechaNac,int edad, String nombre, String correo, String DNI, int telefono) {
+        super(nombre, correo, DNI, telefono);
         this.codigo = contador;
         contador++;
-        this.especialidad = especialidad;
+        this.fechaNac = fechaNac;
         this.edad = edad;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
+    public String getFechaNac() {
+        return fechaNac;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public int getCodigo() {
