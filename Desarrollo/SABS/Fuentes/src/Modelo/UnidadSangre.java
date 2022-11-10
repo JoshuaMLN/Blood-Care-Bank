@@ -10,6 +10,7 @@ public class UnidadSangre {
     //Buenas
     //Tardes
     //hola
+    //hola3
     public UnidadSangre(float Volumen, String GrupoSanguineo, String Rh) {
         this.Volumen = Volumen;
         this.GrupoSanguineo = GrupoSanguineo;
