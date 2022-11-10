@@ -88,12 +88,15 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Registrar Cita">
+                <TitledBorder title="Registrar Extraccion">
                   <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Registrar Extraccion"/>
+          </AccessibilityProperties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -109,11 +112,11 @@
                       </Group>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="comboGrupoSang" pref="118" max="32767" attributes="0"/>
+                          <Component id="comboGrupoSang" max="32767" attributes="0"/>
                           <Component id="comboDonantes" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtFechaExtraccion" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtVolumen" alignment="0" max="32767" attributes="0"/>
-                          <Component id="comboRH" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboRH" alignment="0" pref="118" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="135" max="32767" attributes="0"/>
                   </Group>
@@ -198,10 +201,10 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="0" value="A"/>
+                    <StringItem index="1" value="B"/>
+                    <StringItem index="2" value="O"/>
+                    <StringItem index="3" value="AB"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -223,11 +226,9 @@
             <Component class="javax.swing.JComboBox" name="comboRH">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="2">
+                    <StringItem index="0" value="Positivo(+)"/>
+                    <StringItem index="1" value="Negativo(-)"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -23,6 +23,14 @@ public class ExtraccionSangre {
         this.donante = donante;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     public String getFecha() {
         return Fecha;
     }
