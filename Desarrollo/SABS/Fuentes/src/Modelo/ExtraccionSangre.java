@@ -9,7 +9,7 @@ public class ExtraccionSangre {
     private float Volumen;
     private String GrupoSanguineo;
     private String Rh;
-    
+    //Buenas
 
     private Donante donante;
 
