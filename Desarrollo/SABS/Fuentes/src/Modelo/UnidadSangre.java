@@ -14,7 +14,11 @@ public class UnidadSangre {
     //Tardes
     //hola
     //hola3
+
     //hoas
+
+    //hola4
+
     public UnidadSangre(float Volumen, String GrupoSanguineo, String Rh) {
         this.Volumen = Volumen;
         this.GrupoSanguineo = GrupoSanguineo;
@@ -43,6 +47,11 @@ public class UnidadSangre {
 
     public void setRh(String Rh) {
         this.Rh = Rh;
+    }
+
+    @Override
+    public String toString() {
+        return "UnidadSangre{" + "Volumen:" + Volumen + ", GrupoSanguineo:" + GrupoSanguineo + ", Rh:" + Rh +"\n"+ '}';
     }
 
     

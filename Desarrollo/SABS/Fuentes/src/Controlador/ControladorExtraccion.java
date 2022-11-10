@@ -37,8 +37,12 @@ public class ControladorExtraccion {
                             Repositorio.extracciones.agregar(c); //AGREGAR AL REPO
                             
                             //Creamos la unidad de sangre;
+                            UnidadSangre u=new UnidadSangre(Volumen,vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString());
+                            Almacen.UnidadesSangre.add(u);
                             
-                            
+                            //Prueba para vizualizar las unidades
+                            System.out.println(Almacen.UnidadesSangre);
+                            System.out.println("");
                             
                             JOptionPane.showMessageDialog(null, "Extraccion Registrada");
                             actualizarTabla();
