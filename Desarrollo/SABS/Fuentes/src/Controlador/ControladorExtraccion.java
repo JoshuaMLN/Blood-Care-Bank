@@ -71,13 +71,13 @@ public class ControladorExtraccion {
                 int fila = vista.tblCitasRepo.getSelectedRow();
 
                 if (fila == -1) {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar alguna Cita");
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar alguna Extraccion");
                 } else {
                     int valor = Integer.parseInt(vista.tblCitasRepo.getValueAt(fila, 0).toString());
                     Repositorio.extracciones.eliminar(valor);
                     actualizarTabla();
                     System.out.println("Cita eliminada");
-                    JOptionPane.showMessageDialog(null, "Cita eliminada");
+                    JOptionPane.showMessageDialog(null, "Extraccion eliminada");
                 }
             }
         }
