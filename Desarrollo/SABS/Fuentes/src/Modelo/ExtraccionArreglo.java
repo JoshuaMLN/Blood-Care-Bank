@@ -6,7 +6,7 @@ public class ExtraccionArreglo{
     private ExtraccionSangre[] extracciones;
     private int indice;
     private final String[] cabecera =  {"CODIGO",
-                            "FECHA","DONANTE.","EXTRACCION","VOL.", "GRUPO","RH"};
+                            "FECHA","DONANTE.","VOL.", "GRUPO","RH"};
     
     public ExtraccionArreglo (int tamano) {
         this.extracciones = new ExtraccionSangre[tamano];
