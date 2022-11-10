@@ -29,6 +29,14 @@ public class UnidadSangre {
         this.GrupoSanguineo = GrupoSanguineo;
     }
 
+    public String getRh() {
+        return Rh;
+    }
+
+    public void setRh(String Rh) {
+        this.Rh = Rh;
+    }
+
     
     
     
