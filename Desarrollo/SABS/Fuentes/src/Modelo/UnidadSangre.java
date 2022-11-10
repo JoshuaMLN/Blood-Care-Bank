@@ -6,7 +6,8 @@ public class UnidadSangre {
     private float Volumen;
     private String GrupoSanguineo;
     private String Rh;
-
+    
+    //HOla 6
     public UnidadSangre(float Volumen, String GrupoSanguineo, String Rh) {
         this.Volumen = Volumen;
         this.GrupoSanguineo = GrupoSanguineo;
