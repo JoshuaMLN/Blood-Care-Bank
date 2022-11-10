@@ -12,9 +12,9 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorExtraccion {
 
     private frmExtraccion vista;
-    private CitasArreglo modelo;
+    private ExtraccionArreglo modelo;
 
-    public ControladorExtraccion(frmExtraccion vista, CitasArreglo modelo) {
+    public ControladorExtraccion(frmExtraccion vista, ExtraccionArreglo modelo) {
         this.vista = vista;
         this.modelo = modelo;
 
