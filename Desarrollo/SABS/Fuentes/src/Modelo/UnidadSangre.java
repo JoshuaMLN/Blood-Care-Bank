@@ -45,6 +45,11 @@ public class UnidadSangre {
         this.Rh = Rh;
     }
 
+    @Override
+    public String toString() {
+        return "UnidadSangre{" + "Volumen:" + Volumen + ", GrupoSanguineo:" + GrupoSanguineo + ", Rh:" + Rh +"\n"+ '}';
+    }
+
     
     
     
