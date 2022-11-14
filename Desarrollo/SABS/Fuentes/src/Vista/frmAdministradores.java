@@ -40,11 +40,7 @@ public class frmAdministradores extends javax.swing.JFrame {
 
         tblAdministradores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 
