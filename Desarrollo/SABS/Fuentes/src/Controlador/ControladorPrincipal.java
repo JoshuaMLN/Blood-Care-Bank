@@ -35,6 +35,15 @@ public class ControladorPrincipal {
             }
         );
         
+        this.vista.btnAdministradores.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+                ControladorMostrarAdministradores controlador = new ControladorMostrarAdministradores(new frmAdministradores(), Repositorio.usuarios);
+                controlador.iniciar();
+                vista.dispose();
+                }
+            }
+        );
+        
         this.vista.btnSalir.addActionListener( new ActionListener() {
                 public void actionPerformed(ActionEvent e){
                     modelo.salir();
