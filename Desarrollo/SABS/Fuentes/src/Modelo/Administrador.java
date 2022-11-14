@@ -14,5 +14,5 @@ public class Administrador extends Usuario{
         id++;
         identificador = id;
     }
-    
+ 
 }
