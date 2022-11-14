@@ -8,6 +8,6 @@ package Modelo;
  *
  * @author Momo
  */
-public class Sangre {
+public class Tipos_Sangre {
     
 }

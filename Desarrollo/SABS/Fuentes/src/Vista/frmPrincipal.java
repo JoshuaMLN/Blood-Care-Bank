@@ -31,6 +31,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnExtraccion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Bienvenido:");
 
+        btnExtraccion.setText("Extraccion");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,12 +63,14 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSalir)
-                        .addGap(165, 165, 165))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnDonantes)
-                        .addGap(153, 153, 153))))
+                    .addComponent(btnExtraccion)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btnSalir)
+                            .addGap(165, 165, 165))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btnDonantes)
+                            .addGap(153, 153, 153)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,7 +81,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(lblUsuario))
                 .addGap(97, 97, 97)
                 .addComponent(btnDonantes)
-                .addGap(103, 103, 103)
+                .addGap(36, 36, 36)
+                .addComponent(btnExtraccion)
+                .addGap(39, 39, 39)
                 .addComponent(btnSalir)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -132,6 +139,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDonantes;
+    public javax.swing.JButton btnExtraccion;
     public javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel lblUsuario;
