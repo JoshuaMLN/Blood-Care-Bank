@@ -11,14 +11,18 @@ import Datos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class ControladorMostrarAdministradores {
     private frmAdministradores vista;
     private UsuarioArreglo modelo;
     
+    
     public ControladorMostrarAdministradores(frmAdministradores vista, UsuarioArreglo modelo){
         this.vista = vista;
         this.modelo = modelo;
+        
+        setModelo();
         
         this.vista.btnSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -30,6 +34,12 @@ public class ControladorMostrarAdministradores {
             }
         }
         );
+    }
+    
+    private void setModelo(){
+        String[] cabecera = {"USUARIO", "CONTRASEÑA"};
+        DefaultTableModel admins = new DefaultTableModel(this.modelo.getAdmin(), cabecera);
+        this.vista.tblAdministradores.setModel(admins);
     }
     
     public void iniciar(){

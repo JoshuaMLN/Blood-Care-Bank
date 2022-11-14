@@ -40,13 +40,14 @@ public class frmAdministradores extends javax.swing.JFrame {
 
         tblAdministradores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "USUARIO", "CONTRASEÑA"
+
             }
         ));
         jScrollPane1.setViewportView(tblAdministradores);
@@ -122,7 +123,7 @@ public class frmAdministradores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSalir;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblAdministradores;
     public javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables

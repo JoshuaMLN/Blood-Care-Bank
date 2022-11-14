@@ -43,6 +43,22 @@ public class UsuarioArreglo implements Serializable{
         return resultado;
     }
     
+    public Object[][] getAdmin(){
+        int c = 0;
+        Object resultado[][] = new Object[this.index][3];
+        if(!vacio()){
+            for(int i = 0; i< vec_usuarios.length; i++){
+                if(this.vec_usuarios[i] instanceof Administrador){
+                    resultado[c][0] = this.vec_usuarios[i].getUsuario();
+                    resultado[c][1] = this.vec_usuarios[i].getContrasena();
+                    resultado[c][2] = "ACTIVO";
+                    c++;
+                }
+            }
+        }
+        return resultado;
+    }
+    
     public Usuario[] getInfoCombo(){
         Usuario resultado[]= null;
         if(!vacio()){
