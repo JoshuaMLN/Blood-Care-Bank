@@ -26,6 +26,15 @@ public class ControladorPrincipal {
             }
         );
         
+        this.vista.btnExtraccion.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+                ControladorExtraccion controlador = new ControladorExtraccion (new frmExtraccion(), Repositorio.extracciones);
+                controlador.iniciar();
+                vista.dispose();
+                }
+            }
+        );
+        
         this.vista.btnSalir.addActionListener( new ActionListener() {
                 public void actionPerformed(ActionEvent e){
                     modelo.salir();
