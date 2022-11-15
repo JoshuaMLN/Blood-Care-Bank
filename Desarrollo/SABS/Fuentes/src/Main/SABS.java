@@ -11,6 +11,7 @@ public class SABS {
     public static void main(String[] args) {
         
         Repositorio.usuarios.agregar(new Usuario("admin", "123"));
+        Repositorio.usuarios.agregar(new Usuario("admin2","321"));
         Repositorio.usuarios.agregar(new Usuario("user", "000"));       
         Donante empleado1= new Donante("josefina@gmail.com", 16, "Josefina", "12-12-12", "31501974", 954201376);
         Repositorio.donantes.agregar(empleado1);
