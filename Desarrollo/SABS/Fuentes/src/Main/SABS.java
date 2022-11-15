@@ -14,6 +14,7 @@ public class SABS {
         Repositorio.usuarios.agregar(new Administrador("user", "123"));
         Repositorio.usuarios.agregar(new Administrador("admin1", "1111"));
         Repositorio.usuarios.agregar(new Administrador("admin2", "2222"));
+        Repositorio.usuarios.agregar(new Administrador("admin3","321"));
         Repositorio.usuarios.agregar(new Administrador("user2", "123456"));
         Repositorio.usuarios.agregar(new Administrador("user3", "12345"));
         Repositorio.usuarios.agregar(new Administrador("user4", "1234567"));
