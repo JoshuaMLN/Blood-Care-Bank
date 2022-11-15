@@ -8,6 +8,6 @@ package Modelo;
  *
  * @author Momo
  */
-public class Tipos_Sangre {
-    
+public class Sangre {
+    System.out.println("Banco Sangre");
 }
