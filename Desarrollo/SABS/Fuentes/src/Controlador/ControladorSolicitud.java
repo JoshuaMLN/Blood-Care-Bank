@@ -32,15 +32,15 @@ public class ControladorSolicitud {
         this.vista.btnAgregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 String usuario;
-                String[] Motivo;
+                String Motivo;
                 String Tipo_Sangre;
                 String Cantidad;
-                if(vista.text_Motivo.getText().isEmpty()||vista.text_Cantidad.getText().isEmpty())
+                if(vista.text_Motivo.getText().isEmpty()||vista.text_Cantidad.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
-                else
-                    try{
-                        Motivo = Integer.parseInt(vista.txt_Motivo.getText());
-                    }
+                }
+                else{
+                    Motivo = vista.text_Motivo.getText();
+                }
                 }
             }
         );

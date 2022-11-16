@@ -37,9 +37,7 @@ public class frmInventario extends javax.swing.JFrame {
 
         tbl_Inventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Grupo Sanguíneo", "Rh", "Volumen"
