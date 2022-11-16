@@ -40,6 +40,24 @@
                   <Component id="btnSolicitud" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnExtraccion" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnDonantes" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="btnExtraccion" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnDonantes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnAdministradores" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
           </Group>
@@ -54,6 +72,9 @@
                   <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="btnAdministradores" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="btnDonantes" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSolicitud" min="-2" max="-2" attributes="0"/>
@@ -113,6 +134,12 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSolicitudActionPerformed"/>
+    <Component class="javax.swing.JButton" name="btnAdministradores">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar Administradores"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdministradoresActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

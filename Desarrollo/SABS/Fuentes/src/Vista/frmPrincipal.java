@@ -33,6 +33,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnExtraccion = new javax.swing.JButton();
         btnSolicitud = new javax.swing.JButton();
+        btnAdministradores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +56,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnSolicitud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSolicitudActionPerformed(evt);
+        btnAdministradores.setText("Mostrar Administradores");
+        btnAdministradores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministradoresActionPerformed(evt);
             }
         });
 
@@ -78,6 +83,19 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(btnExtraccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDonantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(149, 149, 149))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnExtraccion)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnSalir)
+                                .addGap(165, 165, 165))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnDonantes)
+                                .addGap(153, 153, 153))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAdministradores)
+                        .addGap(111, 111, 111))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,6 +105,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(lblUsuario))
                 .addGap(74, 74, 74)
+                .addGap(47, 47, 47)
+                .addComponent(btnAdministradores)
+                .addGap(28, 28, 28)
                 .addComponent(btnDonantes)
                 .addGap(18, 18, 18)
                 .addComponent(btnSolicitud)
@@ -107,6 +128,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSolicitudActionPerformed
+    private void btnAdministradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministradoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdministradoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +175,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAdministradores;
     public javax.swing.JButton btnDonantes;
     public javax.swing.JButton btnExtraccion;
     public javax.swing.JButton btnSalir;

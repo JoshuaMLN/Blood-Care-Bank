@@ -9,5 +9,5 @@ package Modelo;
  * @author Momo
  */
 public class Sangre {
-    
+    System.out.println("Banco Sangre");
 }
