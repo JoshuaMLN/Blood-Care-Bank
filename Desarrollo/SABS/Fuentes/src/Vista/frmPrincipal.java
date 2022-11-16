@@ -32,6 +32,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnExtraccion = new javax.swing.JButton();
+        btnSolicitud = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         btnExtraccion.setText("Extraccion");
 
+        btnSolicitud.setText("Solicitud");
+        btnSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSolicitudActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,15 +70,14 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap(264, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExtraccion)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnSalir)
-                            .addGap(165, 165, 165))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnDonantes)
-                            .addGap(153, 153, 153)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(btnSalir))
+                    .addComponent(btnSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExtraccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDonantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,9 +86,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblUsuario))
-                .addGap(97, 97, 97)
+                .addGap(74, 74, 74)
                 .addComponent(btnDonantes)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
+                .addComponent(btnSolicitud)
+                .addGap(18, 18, 18)
                 .addComponent(btnExtraccion)
                 .addGap(39, 39, 39)
                 .addComponent(btnSalir)
@@ -94,6 +103,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnDonantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonantesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDonantesActionPerformed
+
+    private void btnSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSolicitudActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +154,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public javax.swing.JButton btnDonantes;
     public javax.swing.JButton btnExtraccion;
     public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnSolicitud;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
