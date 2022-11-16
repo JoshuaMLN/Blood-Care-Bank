@@ -26,6 +26,15 @@ public class ControladorPrincipal {
             }
         );
         
+        this.vista.btnSolicitud.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+                ControladorSolicitud controlador = new ControladorSolicitud (new frmSolicitud(), Repositorio.solicitudes);
+                controlador.iniciar();
+                vista.dispose();
+                }
+            }
+        );
+        
         this.vista.btnExtraccion.addActionListener(new ActionListener(){
             public void actionPerformed (ActionEvent e){
                 ControladorExtraccion controlador = new ControladorExtraccion (new frmExtraccion(), Repositorio.extracciones);
@@ -44,19 +53,12 @@ public class ControladorPrincipal {
             }
         );
         
-        this.vista.btnSalir.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                modelo.salir();
-                ControladorSistema controlador = new ControladorSistema( Repositorio.usuarios, new frmSistema() );
-                controlador.iniciar();
-                vista.dispose();
-                }
-            }
-        );
-        
-        this.vista.btnInventario.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                
+        this.vista.btnSalir.addActionListener( new ActionListener() {
+                public void actionPerformed(ActionEvent e){
+                    modelo.salir();
+                    ControladorSistema controlador = new ControladorSistema( Repositorio.usuarios, new frmSistema() );
+                    controlador.iniciar();
+                    vista.dispose();
                 }
             }
         );
