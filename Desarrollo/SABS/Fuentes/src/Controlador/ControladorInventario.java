@@ -31,6 +31,7 @@ public class ControladorInventario {
         }
         );
         
+        addRowToTblInventario();
     }
     
     public void addRowToTblInventario(){
