@@ -40,11 +40,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Panel_Datos" min="-2" max="-2" attributes="0"/>
+                  <Component id="Panel_Datos" min="-2" pref="202" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="Panel_Solicitudes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,7 +53,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Panel_Solicitudes" max="32767" attributes="0"/>
+                  <Component id="Panel_Solicitudes" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="Panel_Datos" min="-2" pref="289" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -61,10 +61,9 @@
                           <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,15 +84,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="Nombre" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="Nombre" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="text_Motivo" pref="0" max="32767" attributes="0"/>
+                              <Component id="text_Motivo" max="32767" attributes="0"/>
                               <Component id="Motivo" alignment="1" max="32767" attributes="0"/>
-                              <Component id="text_Nombre" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="text_Nombre" alignment="1" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -119,19 +115,22 @@
                                               <Component id="Sangre_Neg" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                          <Component id="Cantidad" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="text_Cantidad" min="-2" pref="55" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Component id="Cantidad" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="text_Cantidad" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -176,8 +175,9 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="text_Cantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -328,7 +328,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Cantidad">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cantidad (L) :"/>
+            <Property name="text" type="java.lang.String" value="Cantidad:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="text_Cantidad">
@@ -351,6 +351,11 @@
             <Property name="text" type="java.lang.String" value="Rh"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="Panel_Solicitudes">
@@ -369,10 +374,13 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="419" max="-2" attributes="0"/>
-                      <Component id="btnEliminar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="479" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -380,7 +388,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="251" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -399,16 +407,22 @@
             <Component class="javax.swing.JTable" name="tbl_Solicitudes">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
                     <Column editable="true" title="Nombre" type="java.lang.Object"/>
                     <Column editable="true" title="Motivo" type="java.lang.Object"/>
                     <Column editable="true" title="Grupo Sangu&#xed;neo" type="java.lang.Object"/>
                     <Column editable="true" title="Rh" type="java.lang.Object"/>
                     <Column editable="true" title="Cantidad (L)" type="java.lang.Object"/>
+                    <Column editable="true" title="Fecha" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>

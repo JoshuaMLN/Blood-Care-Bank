@@ -36,6 +36,7 @@ public class ControladorSolicitud {
                 String GrupoSanguineo = null;
                 String Rh = null;
                 int Cantidad;
+                
                 if(vista.text_Motivo.getText().isEmpty()||vista.text_Cantidad.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } 
