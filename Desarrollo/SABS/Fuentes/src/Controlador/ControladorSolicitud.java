@@ -1,9 +1,6 @@
 
 package Controlador;
-/**
- *
- * @author Joshua ML
- */
+
 import Modelo.*;
 import Vista.*;
 import Datos.*;

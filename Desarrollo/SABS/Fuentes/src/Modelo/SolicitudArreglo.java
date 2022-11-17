@@ -1,6 +1,6 @@
 
 package Modelo;
-/* @author Joshua ML*/
+
 public class SolicitudArreglo {
     private Solicitud[] vec_solicitudes;
     private int index;
