@@ -13,7 +13,7 @@ public class Solicitud {
     private String Rh;
     private float Cantidad;
     private Date Fecha;
-    private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
+    private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY HH:mm");
     
     public Solicitud(String Nombre,String Motivo,String GrupoSanguineo,String Rh,float Cantidad){
         this.Codigo = contador;
@@ -69,6 +69,6 @@ public class Solicitud {
     }
     @Override
     public String toString() {
-        return "Solicitud{" + "Codigo:" + Codigo +"Nombre:" + Nombre + ", Motivo:" + Motivo + ", Grupo Sanguineo:" + GrupoSanguineo+ ", Rh:" + Rh +", Cantidad(L):" + Cantidad + ", Fecha:" + sdf.format(Fecha) + "\n"+ '}';
+        return "Solicitud{" + "Codigo:" + Codigo +"Nombre:" + Nombre + ", Motivo:" + Motivo + ", Grupo Sanguineo:" + GrupoSanguineo+ ", Rh:" + Rh +", Cantidad(L):" + Cantidad + ", Fecha y hora:" + sdf.format(Fecha) + "\n"+ '}';
     }
 }

@@ -5,7 +5,7 @@ public class SolicitudArreglo {
     private Solicitud[] vec_solicitudes;
     private int index;
     private final String[] cabecera =  {"CODIGO","NOMBRE","MOTIVO","GRUPO SANG.",
-                                        "RH","CANTIDAD","FECHA"};
+                                        "RH","CANTIDAD","FECHA Y HORA"};
     public SolicitudArreglo(int tamano) {
         this.vec_solicitudes = new Solicitud[tamano];
         this.index = 0;
