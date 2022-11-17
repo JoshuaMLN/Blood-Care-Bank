@@ -1,8 +1,12 @@
 
 package Controlador;
 
+import Datos.Repositorio;
 import Modelo.UnidadSangre;
 import Vista.frmInventario;
+import Vista.frmPrincipal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,17 +22,21 @@ public class ControladorInventario {
         this.vista = vista;
         this.modelo = modelo;
         
-    }
-    
-    public void iniciar(){
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
+        this.vista.btnRegresar.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+                ControladorPrincipal controlador = new ControladorPrincipal(Repositorio.usuario_validado, new frmPrincipal());
+                controlador.iniciar();
+                vista.dispose();
+            }
+        }
+        );
+        
     }
     
     public void addRowToTblInventario(){
         DefaultTableModel tblModel = (DefaultTableModel) vista.tbl_Inventario.getModel();
-        ArrayList<UnidadSangre> lista;
-        lista = modelo.getUnidadesSangre();
+        ArrayList<UnidadSangre> lista = modelo;
+        System.out.println("Hola bb");
         Object rowData[] = new Object[3];
         for(int i = 0; i < lista.size(); i++){
             rowData[0] = lista.get(i).getGrupoSanguineo();
@@ -37,4 +45,11 @@ public class ControladorInventario {
             tblModel.addRow(rowData);
         }
     }
+    
+    public void iniciar(){
+        vista.setLocationRelativeTo(null);
+        vista.setVisible(true);
+    }
+    
+    
 }
