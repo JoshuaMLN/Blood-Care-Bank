@@ -37,9 +37,10 @@ public class ControladorInventario {
     public void addRowToTblInventario(){
         DefaultTableModel tblModel = (DefaultTableModel) vista.tbl_Inventario.getModel();
         ArrayList<UnidadSangre> lista = modelo;
-        System.out.println("Hola bb");
+        ArrayList<UnidadSangre> listaOrdenada = calcVolumenTotal(lista);
         Object rowData[] = new Object[3];
-        for(int i = 0; i < lista.size(); i++){
+        
+        for(int i = 0; i < listaOrdenada.size(); i++){
             rowData[0] = lista.get(i).getGrupoSanguineo();
             rowData[1] = lista.get(i).getRh();
             rowData[2] = lista.get(i).getVolumen();
@@ -52,5 +53,61 @@ public class ControladorInventario {
         vista.setVisible(true);
     }
     
-    
+    public ArrayList<UnidadSangre> calcVolumenTotal(ArrayList<UnidadSangre> unorderedList){
+        float volAPlus = 0, volBPlus = 0, volABPlus = 0, volOPlus = 0, volANega = 0, volBNega = 0, volABNega = 0, volONega = 0;
+        
+        for(int i = 0; i < unorderedList.size(); i++){
+            String grupoSangre = unorderedList.get(i).getGrupoSanguineo();
+            String rh = unorderedList.get(i).getRh();
+            float volumen = unorderedList.get(i).getVolumen();
+            
+            if(grupoSangre.equals("A")){
+                if(rh.equals("+")){
+                    volAPlus += volumen;
+                }
+                else{
+                    volANega += volumen;
+                }
+            }
+            else if(grupoSangre.equals("B")){
+                if(rh.equals("+")){
+                    volBPlus += volumen;
+                }
+                else{
+                    volBNega += volumen;
+                }
+            }
+            else if(grupoSangre.equals("AB")){
+                if(rh.equals("+")){
+                    volABPlus += volumen;
+                }
+                else{
+                    volABNega += volumen;
+                }
+            }
+            else if(grupoSangre.equals("O")){
+                if(rh.equals("+")){
+                    volOPlus += volumen;
+                }
+                else{
+                    volONega += volumen;
+                }
+            }
+        }
+        
+        System.out.println(volONega);
+        
+        ArrayList<UnidadSangre> orderedList = new ArrayList<UnidadSangre>();
+        
+        orderedList.add(new UnidadSangre(volAPlus,"A","+"));
+        orderedList.add(new UnidadSangre(volANega,"A","-"));
+        orderedList.add(new UnidadSangre(volBPlus,"B","+"));
+        orderedList.add(new UnidadSangre(volBNega,"B","-"));
+        orderedList.add(new UnidadSangre(volABPlus,"AB","+"));
+        orderedList.add(new UnidadSangre(volABNega,"AB","-"));
+        orderedList.add(new UnidadSangre(volOPlus,"O","+"));
+        orderedList.add(new UnidadSangre(volONega,"O","-"));
+        
+        return orderedList;
+    }
 }
