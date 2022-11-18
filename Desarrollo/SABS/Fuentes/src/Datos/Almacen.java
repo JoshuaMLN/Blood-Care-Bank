@@ -13,5 +13,5 @@ import java.util.ArrayList;
  * @author JHON
  */
 public class Almacen {
-    public static ArrayList<UnidadSangre> UnidadesSangre = new ArrayList<UnidadSangre>();
+    public static ArrayList<UnidadSangre> UnidadesSangre = new ArrayList<>();
 }
