@@ -22,6 +22,9 @@ public class ControladorInventario {
         this.vista = vista;
         this.modelo = modelo;
         
+                
+        addRowToTblInventario();
+        
         this.vista.btnRegresar.addActionListener(new ActionListener(){
             public void actionPerformed (ActionEvent e){
                 ControladorPrincipal controlador = new ControladorPrincipal(Repositorio.usuario_validado, new frmPrincipal());
@@ -30,8 +33,7 @@ public class ControladorInventario {
             }
         }
         );
-        
-        addRowToTblInventario();
+
     }
     
     public void addRowToTblInventario(){
@@ -41,9 +43,9 @@ public class ControladorInventario {
         Object rowData[] = new Object[3];
         
         for(int i = 0; i < listaOrdenada.size(); i++){
-            rowData[0] = lista.get(i).getGrupoSanguineo();
-            rowData[1] = lista.get(i).getRh();
-            rowData[2] = lista.get(i).getVolumen();
+            rowData[0] = listaOrdenada.get(i).getGrupoSanguineo();
+            rowData[1] = listaOrdenada.get(i).getRh();
+            rowData[2] = listaOrdenada.get(i).getVolumen();
             tblModel.addRow(rowData);
         }
     }
