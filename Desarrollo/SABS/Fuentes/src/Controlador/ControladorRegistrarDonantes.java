@@ -4,14 +4,21 @@ package Controlador;
 import Modelo.*;
 import Vista.*;
 import Datos.*;
+import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class ControladorRegistrarDonantes {
     private frmDonantes vista;
     private DonanteArreglo modelo;
+    
+    private ConsultasDonante modeloC = new ConsultasDonante();
+    
+    DefaultTableModel modelotabla = new DefaultTableModel();
     
     private int codEditar=0;//codigo del donante a editar
 
@@ -21,7 +28,7 @@ public class ControladorRegistrarDonantes {
         
         this.vista.btnRegistrar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                int numTelefono;
+                String numTelefono;
                 int edad;
                 if (vista.txtFechaNacimiento.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
                         || vista.txtNombreDonante.getText().isEmpty() || vista.txtCorreo.getText().isEmpty()
@@ -29,14 +36,16 @@ public class ControladorRegistrarDonantes {
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } else {
                     try {
-                        numTelefono = Integer.parseInt(vista.lblTelefonoEmpleado.getText());
+                        //numTelefono = Integer.parseInt(vista.lblTelefonoEmpleado.getText());
+                        numTelefono=vista.lblTelefonoEmpleado.getText();
                         try {
                             edad = Integer.parseInt(vista.txtEdad.getText());
                             Donante em = new Donante(vista.txtFechaNacimiento.getText(),
                                     edad, vista.txtNombreDonante.getText(),
                                     vista.txtCorreo.getText(), vista.txtDNIEmpleado.getText(),
                                     numTelefono);
-                            Repositorio.donantes.agregar(em);
+                            //Repositorio.donantes.agregar(em);
+                            modeloC.registrarDonante(em);
                             System.out.println("Donante AGREGADO");
                             JOptionPane.showMessageDialog(null, "Donante Agregado");
                             actualizarTabla();
@@ -62,7 +71,8 @@ public class ControladorRegistrarDonantes {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar un donante");
                 } else {
                     int valor = Integer.parseInt(vista.tblDonanteRepo.getValueAt(fila, 0).toString());//codigo de donante
-                    Repositorio.donantes.eliminar(valor);//metodo para eliminar donantes
+                    //Repositorio.donantes.eliminar(valor);//metodo para eliminar donantes
+                    modeloC.eliminarDonante(valor);
                     actualizarTabla();//actualizamos
                     System.out.println("Donante Eliminado");
                     JOptionPane.showMessageDialog(null, "Donante Eliminado");
@@ -114,7 +124,7 @@ public class ControladorRegistrarDonantes {
         
         this.vista.btnEditarOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int numTelefono;
+                String numTelefono;
                 int edad;
                 //donante
                 Donante donante = modelo.devolverDonante(codEditar);
@@ -125,7 +135,8 @@ public class ControladorRegistrarDonantes {
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } else {
                     try {
-                        numTelefono = Integer.parseInt(vista.lblTelefonoEmpleado.getText());
+                        //numTelefono = Integer.parseInt(vista.lblTelefonoEmpleado.getText());
+                        numTelefono=vista.lblTelefonoEmpleado.getText();
                         try {
                             edad = Integer.parseInt(vista.txtEdad.getText());
                             donante.setNombre(vista.txtNombreDonante.getText());
@@ -163,11 +174,62 @@ public class ControladorRegistrarDonantes {
         );
         
     }
-    public void actualizarTabla() {
+    public void actualizarTabla2() {
         //lo del jtable
         DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
         this.vista.tblDonanteRepo.setModel(modelotabla);
     }
+    public void actualizarTabla(){
+        
+        try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            vista.tblDonanteRepo.setModel(modelo);
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            ConexionBaseDatos conn = new ConexionBaseDatos();
+            Connection con = conn.conectar();
+
+            TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);//iniciamos el sorter
+            vista.tblDonanteRepo.setRowSorter(sorter);//indicamos a la tabla el sorter
+
+            String sql = "SELECT * FROM donante";
+            System.out.println(sql);
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();//cantidad de datos
+
+            //nombramos las columnas
+            modelo.addColumn("id");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Naci");
+            modelo.addColumn("DNI");
+            modelo.addColumn("Edad");
+            modelo.addColumn("Telefono");
+            modelo.addColumn("Correo");
+            
+
+            while (rs.next()) {//llenar cada fila
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);//llenamos filas
+            }
+
+            int [] anchos = {8, 50, 50, 50, 50, 50,50};
+
+            for (int x = 0; x < cantidadColumnas; x++){ //Cambie cantidadColumnas -> 4
+                vista.tblDonanteRepo.getColumnModel().getColumn(x).setPreferredWidth(anchos[x]);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.toString());
+        }
+    }
+    
+    
     public void limpiarCampos(){
         this.vista.txtNombreDonante.setText("");
         this.vista.txtCorreo.setText("");

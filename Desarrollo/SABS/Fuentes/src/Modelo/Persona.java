@@ -6,12 +6,15 @@ public abstract class Persona {
     protected String nombre;
     protected String correo;
     protected String DNI;
-    protected int telefono;
+    protected String telefono;
+
+    public Persona() {
+    }
     
     
     //constructor, get ,set, 
 
-    public Persona(String nombre, String correo, String DNI, int telefono) {
+    public Persona(String nombre, String correo, String DNI, String telefono) {
         this.nombre = nombre;
         this.correo = correo;
         this.DNI = DNI;
