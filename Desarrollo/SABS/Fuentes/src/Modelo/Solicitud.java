@@ -72,3 +72,5 @@ public class Solicitud {
         return "Solicitud{" + "Codigo:" + Codigo +"Nombre:" + Nombre + ", Motivo:" + Motivo + ", Grupo Sanguineo:" + GrupoSanguineo+ ", Rh:" + Rh +", Cantidad(L):" + Cantidad + ", Fecha y hora:" + sdf.format(Fecha) + "\n"+ '}';
     }
 }
+
+
