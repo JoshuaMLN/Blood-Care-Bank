@@ -4,41 +4,51 @@ package Modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 
 public class ConsultasDonante extends ConexionBaseDatos{
     
-    //registrar
-    /*
-    public List listar(){
-        PreparedStatement ps=null;
+    public static DefaultTableModel listar(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Naci");
+        modelo.addColumn("DNI");
+        modelo.addColumn("Edad");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Correo");
+        
         Connection con=conectar();
+        PreparedStatement ps=null;
+        String sql="SELECT * FROM donante";
         ResultSet rs;
         
-        List<Donante>datos=new ArrayList<>();
-        String sql ="SELECT * FROM empleados";
-        try{
+        try {
             ps = con.prepareStatement(sql);
             rs=ps.executeQuery();
-            while(rs.next()){
-                Donante e= new Donante();
-                e.setCodigo(rs.getInt(1));
-                e.setNombre(rs.getString(2));
-                e.setApellido(rs.getString(3));
-                e.setDNI(rs.getString(4));
-                e.setTelefono(rs.getInt(5));
-                e.setEspecialidad(rs.getString(6));
-                e.setSueldo(rs.getFloat(7));
-                datos.add(e);
+            
+            
+            ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
+            int cantidadColumnas = rsMd.getColumnCount();
+            
+            while (rs.next()) {//llenar cada fila
+                Object[] filas = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);//llenamos filas
             }
             
-        }catch(SQLException e){
-            System.err.println(e);
-        }        
-        return datos;
-        
+        } catch (SQLException e) {
+            System.out.println("Error de listado: "+e.getMessage());
+        }finally{
+            ps=null;
+            rs=null;
+            
+        }
+        return modelo;
     }
-    */
     
     public boolean registrarDonante(Donante donante){
         PreparedStatement ps=null;

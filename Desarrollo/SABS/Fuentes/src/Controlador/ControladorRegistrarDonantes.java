@@ -179,7 +179,7 @@ public class ControladorRegistrarDonantes {
         DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
         this.vista.tblDonanteRepo.setModel(modelotabla);
     }
-    public void actualizarTabla(){
+    public void actualizarTabla3(){
         
         try {
             DefaultTableModel modelo = new DefaultTableModel();
@@ -228,6 +228,10 @@ public class ControladorRegistrarDonantes {
             System.err.println(ex.toString());
         }
     }
+    public void actualizarTabla(){
+        this.vista.tblDonanteRepo.setModel(ConsultasDonante.listar());
+    }
+    
     
     
     public void limpiarCampos(){
