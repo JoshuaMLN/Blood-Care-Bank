@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import Modelo.*;
 import Vista.*;
 import Datos.*;
+import static Datos.Almacen.UnidadesSangre;
 
 
 public class ControladorPrincipal {
@@ -51,6 +52,15 @@ public class ControladorPrincipal {
                 vista.dispose();
                 }
             }
+        );
+        
+        this.vista.btnInventario.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                ControladorInventario controlador = new ControladorInventario(new frmInventario(), UnidadesSangre);
+                controlador.iniciar();
+                vista.dispose();
+            }
+        }
         );
         
         this.vista.btnSalir.addActionListener( new ActionListener() {
