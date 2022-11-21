@@ -13,7 +13,7 @@ public class ControladorExtraccion {
 
     private frmExtraccion vista;
     private ExtraccionArreglo modelo;
-
+//a
     public ControladorExtraccion(frmExtraccion vista, ExtraccionArreglo modelo) {
         this.vista = vista;
         this.modelo = modelo;

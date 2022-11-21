@@ -1,8 +1,10 @@
 
 package Modelo;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class Solicitud {
     private static int contador=0;
@@ -14,6 +16,7 @@ public class Solicitud {
     private float Cantidad;
     private Date Fecha;
     private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY HH:mm");
+
     
     public Solicitud(String Nombre,String Motivo,String GrupoSanguineo,String Rh,float Cantidad){
         this.Codigo = contador;
@@ -24,6 +27,7 @@ public class Solicitud {
         this.Rh=Rh;
         this.Cantidad=Cantidad;
         this.Fecha=new Date();
+
     }
     public int getCodigo(){
         return Codigo;
@@ -61,6 +65,7 @@ public class Solicitud {
     public void setCantidad(float Cantidad){
         this.Cantidad=Cantidad;
     }
+
     public String getFecha(){
         return sdf.format(Fecha);
     }
@@ -72,5 +77,6 @@ public class Solicitud {
         return "Solicitud{" + "Codigo:" + Codigo +"Nombre:" + Nombre + ", Motivo:" + Motivo + ", Grupo Sanguineo:" + GrupoSanguineo+ ", Rh:" + Rh +", Cantidad(L):" + Cantidad + ", Fecha y hora:" + sdf.format(Fecha) + "\n"+ '}';
     }
 }
+
 
 

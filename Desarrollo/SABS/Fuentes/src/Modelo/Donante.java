@@ -8,8 +8,11 @@ public class Donante extends Persona {
     private int codigo;
     private int edad;
 
+    public Donante() {
+    }
+
     
-    public Donante(String fechaNac,int edad, String nombre, String correo, String DNI, int telefono) {
+    public Donante(String fechaNac,int edad, String nombre, String correo, String DNI, String telefono) {
         super(nombre, correo, DNI, telefono);
         this.codigo = contador;
         contador++;
@@ -41,15 +44,17 @@ public class Donante extends Persona {
         this.edad = edad;
     }
 
-    
-
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    
+
+    
 
     @Override
     public String toString() {
