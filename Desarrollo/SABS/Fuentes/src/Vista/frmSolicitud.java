@@ -45,6 +45,7 @@ public class frmSolicitud extends javax.swing.JFrame {
         Cantidad = new javax.swing.JLabel();
         text_Cantidad = new javax.swing.JTextField();
         Tipo_de_Sangre1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Panel_Solicitudes = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_Solicitudes = new javax.swing.JTable();
@@ -129,7 +130,7 @@ public class frmSolicitud extends javax.swing.JFrame {
             }
         });
 
-        Cantidad.setText("Cantidad (L) :");
+        Cantidad.setText("Cantidad:");
 
         text_Cantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         text_Cantidad.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +146,8 @@ public class frmSolicitud extends javax.swing.JFrame {
 
         Tipo_de_Sangre1.setText("Rh");
 
+        jLabel1.setText("L");
+
         javax.swing.GroupLayout Panel_DatosLayout = new javax.swing.GroupLayout(Panel_Datos);
         Panel_Datos.setLayout(Panel_DatosLayout);
         Panel_DatosLayout.setHorizontalGroup(
@@ -152,14 +155,12 @@ public class frmSolicitud extends javax.swing.JFrame {
             .addGroup(Panel_DatosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panel_DatosLayout.createSequentialGroup()
-                        .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Panel_DatosLayout.createSequentialGroup()
                         .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_Motivo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(text_Motivo)
                             .addComponent(Motivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(text_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(text_Nombre, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(Panel_DatosLayout.createSequentialGroup()
                                 .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Panel_DatosLayout.createSequentialGroup()
@@ -179,14 +180,17 @@ public class frmSolicitud extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Sangre_Pos)
-                                            .addComponent(Sangre_Neg)))
-                                    .addGroup(Panel_DatosLayout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(Cantidad)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(text_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(16, 16, 16))))
+                                            .addComponent(Sangre_Neg))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(Panel_DatosLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(Cantidad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(text_Cantidad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)))
+                .addContainerGap())
         );
         Panel_DatosLayout.setVerticalGroup(
             Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +225,9 @@ public class frmSolicitud extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cantidad)
-                    .addComponent(text_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                    .addComponent(text_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(34, 34, 34))
         );
 
         Panel_Solicitudes.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabla de Solicitudes"));
@@ -233,7 +238,7 @@ public class frmSolicitud extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Motivo", "Grupo Sanguíneo", "Rh", "Cantidad (L)"
+                "Nombre", "Motivo", "Grupo Sanguíneo", "Rh", "Cantidad (L)", "Fecha"
             }
         ));
         jScrollPane1.setViewportView(tbl_Solicitudes);
@@ -252,17 +257,20 @@ public class frmSolicitud extends javax.swing.JFrame {
             .addGroup(Panel_SolicitudesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_SolicitudesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)))
+                .addContainerGap())
         );
         Panel_SolicitudesLayout.setVerticalGroup(
             Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_SolicitudesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar))
+                .addComponent(btnEliminar)
+                .addGap(7, 7, 7))
         );
 
         btnAgregar.setText("Agregar");
@@ -285,30 +293,29 @@ public class frmSolicitud extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40)
                         .addComponent(btnAgregar))
-                    .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCancelar)
-                            .addComponent(btnAgregar))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(btnAgregar))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -419,6 +426,7 @@ public class frmSolicitud extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEliminar;
+    private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tbl_Solicitudes;
     public javax.swing.JTextField text_Cantidad;

@@ -1,11 +1,11 @@
 
 package Modelo;
-/* @author Joshua ML*/
+
 public class SolicitudArreglo {
     private Solicitud[] vec_solicitudes;
     private int index;
     private final String[] cabecera =  {"CODIGO","NOMBRE","MOTIVO","GRUPO SANG.",
-                                        "RH","CANTIDAD"};
+                                        "RH","CANTIDAD","FECHA Y HORA"};
     public SolicitudArreglo(int tamano) {
         this.vec_solicitudes = new Solicitud[tamano];
         this.index = 0;
@@ -41,7 +41,7 @@ public class SolicitudArreglo {
                 resultado[index][3] = this.vec_solicitudes[index].getGrupoSanguineo();
                 resultado[index][4] = this.vec_solicitudes[index].getRh();
                 resultado[index][5] = this.vec_solicitudes[index].getCantidad();
-                
+                resultado[index][6] = this.vec_solicitudes[index].getFecha();
             }
         }
         return resultado;
@@ -75,3 +75,4 @@ public class SolicitudArreglo {
         return resultado;
     }
 }
+

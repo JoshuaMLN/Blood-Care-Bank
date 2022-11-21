@@ -149,6 +149,7 @@ public class frmSistema extends javax.swing.JFrame {
             }
         });
 
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
