@@ -62,6 +62,7 @@ public class ControladorSolicitud {
                     Cantidad = Integer.parseInt(vista.text_Cantidad.getText());
                     Solicitud em = new Solicitud(Nombre,Motivo,GrupoSanguineo,Rh,Cantidad);
                     Repositorio.solicitudes.agregar(em);
+                    //A+.disminuir(volumen);
                     System.out.println("Solicitud AGREGADO");
                     JOptionPane.showMessageDialog(null, "Solicitud Agregada");
                     actualizarTabla();
@@ -77,10 +78,13 @@ public class ControladorSolicitud {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar una solicitud");
                 }else {
                     int valor = Integer.parseInt(vista.tbl_Solicitudes.getValueAt(fila, 0).toString());//codigo de la solicitud
+                    
                     Repositorio.solicitudes.eliminar(valor);//metodo para eliminar solicitudes
                     actualizarTabla();//actualizamos
                     System.out.println("Solicitud Eliminada");
+                    
                     JOptionPane.showMessageDialog(null, "Solicitud Eliminada");
+                    
                 }
             }
         }
@@ -98,5 +102,5 @@ public class ControladorSolicitud {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
         actualizarTabla();
-    }
+    }}
 

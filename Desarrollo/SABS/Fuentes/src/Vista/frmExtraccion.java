@@ -41,7 +41,7 @@ public class frmExtraccion extends javax.swing.JFrame {
         comboRH = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblCitasRepo = new javax.swing.JTable();
+        tblExtRepo = new javax.swing.JTable();
         botonRegistrar = new javax.swing.JButton();
         botonEliminar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
@@ -113,7 +113,7 @@ public class frmExtraccion extends javax.swing.JFrame {
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
-        tblCitasRepo.setModel(new javax.swing.table.DefaultTableModel(
+        tblExtRepo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -124,7 +124,7 @@ public class frmExtraccion extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(tblCitasRepo);
+        jScrollPane3.setViewportView(tblExtRepo);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -194,8 +194,6 @@ public class frmExtraccion extends javax.swing.JFrame {
                             .addComponent(botonRegresar))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
-
-        jPanel2.getAccessibleContext().setAccessibleName("Registrar Extraccion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,7 +273,7 @@ public class frmExtraccion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel jlabel;
-    public javax.swing.JTable tblCitasRepo;
+    public javax.swing.JTable tblExtRepo;
     public javax.swing.JTextField txtFechaExtraccion;
     public javax.swing.JTextField txtVolumen;
     // End of variables declaration//GEN-END:variables
