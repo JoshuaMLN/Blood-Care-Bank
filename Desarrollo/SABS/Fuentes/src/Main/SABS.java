@@ -33,7 +33,6 @@ public class SABS {
         Almacen.UnidadesSangre.add(new UnidadSangre(7,"AB","+"));
         Almacen.UnidadesSangre.add(new UnidadSangre(1,"AB","-"));
         Almacen.UnidadesSangre.add(new UnidadSangre(15,"AB","-"));
-        Donante empleado1= new Donante("josefina@gmail.com", 16, "Josefina", "12-12-12", "31501974", 954201376);
 
         Repositorio.donantes.agregar(empleado1);
         Donante empleado2= new Donante("joseph@gmail.com", 18, "Joseph", "11-11-11", "74105896", "983511012");

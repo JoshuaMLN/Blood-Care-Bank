@@ -99,4 +99,4 @@ public class ControladorSolicitud {
         this.vista.setVisible(true);
         actualizarTabla();
     }
-
+}
