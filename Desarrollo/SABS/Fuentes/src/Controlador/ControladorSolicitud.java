@@ -1,7 +1,6 @@
 
 package Controlador;
 
-
 import Modelo.*;
 import Vista.*;
 import Datos.*;
@@ -14,11 +13,15 @@ import javax.swing.JRadioButton;
 public class ControladorSolicitud {
     private frmSolicitud vista;
     private SolicitudArreglo modelo;
+    
+    private ConsultasSolicitud modeloC = new ConsultasSolicitud();
+    
     private int codEditar=0;//codigo del donante a editar
     
     public ControladorSolicitud(frmSolicitud vista, SolicitudArreglo modelo) {
         this.vista = vista;
         this.modelo = modelo;
+        
         this.vista.btnCancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 ControladorPrincipal controlador = new ControladorPrincipal(Repositorio.usuario_validado, new frmPrincipal());
@@ -33,7 +36,7 @@ public class ControladorSolicitud {
                 String Motivo = null;
                 String GrupoSanguineo = null;
                 String Rh = null;
-                int Cantidad;
+                float Cantidad;
 
                 if(vista.text_Motivo.getText().isEmpty()||vista.text_Cantidad.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
@@ -59,9 +62,10 @@ public class ControladorSolicitud {
                     else if(vista.Sangre_Neg.isSelected()){
                         Rh = vista.Sangre_Neg.getText();;
                     }
-                    Cantidad = Integer.parseInt(vista.text_Cantidad.getText());
+                    Cantidad = Float.parseFloat(vista.text_Cantidad.getText());
                     Solicitud em = new Solicitud(Nombre,Motivo,GrupoSanguineo,Rh,Cantidad);
-                    Repositorio.solicitudes.agregar(em);
+                    //Repositorio.solicitudes.agregar(em);
+                    modeloC.registrarSolicitud(em);
                     System.out.println("Solicitud AGREGADO");
                     JOptionPane.showMessageDialog(null, "Solicitud Agregada");
                     actualizarTabla();
@@ -73,11 +77,13 @@ public class ControladorSolicitud {
         this.vista.btnEliminar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int fila = vista.tbl_Solicitudes.getSelectedRow();
+                
                 if (fila == -1) {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar una solicitud");
                 }else {
                     int valor = Integer.parseInt(vista.tbl_Solicitudes.getValueAt(fila, 0).toString());//codigo de la solicitud
-                    Repositorio.solicitudes.eliminar(valor);//metodo para eliminar solicitudes
+                    //Repositorio.solicitudes.eliminar(valor);
+                    modeloC.eliminarSolicitud(valor);
                     actualizarTabla();//actualizamos
                     System.out.println("Solicitud Eliminada");
                     JOptionPane.showMessageDialog(null, "Solicitud Eliminada");
@@ -86,9 +92,8 @@ public class ControladorSolicitud {
         }
         );
     }
-    public void actualizarTabla() {
-        DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
-        this.vista.tbl_Solicitudes.setModel(modelotabla);
+    public void actualizarTabla(){
+        this.vista.tbl_Solicitudes.setModel(ConsultasSolicitud.listar());
     }
     public void limpiarCampos(){
         this.vista.text_Motivo.setText("");
