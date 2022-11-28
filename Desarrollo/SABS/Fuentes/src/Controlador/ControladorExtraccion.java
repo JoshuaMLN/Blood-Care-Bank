@@ -92,15 +92,16 @@ public class ControladorExtraccion {
         }
         );
     }
-
+/*
     public void actualizarTabla2() {
         //lo del jtable
         DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
         this.vista.tblExtRepo.setModel(modelotabla);
-    }
+    }*/
     
     public void actualizarTabla(){
         this.vista.tblExtRepo.setModel(ConsultasExtraccion.listar());
+        this.vista.tblExtRepo.getTableHeader().setReorderingAllowed(false);//para que no se mueva
     }
     
     public void limpiarCampos(){
@@ -114,7 +115,7 @@ public class ControladorExtraccion {
     public void iniciar() {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
-
+        this.vista.tblExtRepo.setEditingColumn(2);
 
         //lo del combobox donantes
         DefaultComboBoxModel modeloCboEmpleados = new DefaultComboBoxModel();

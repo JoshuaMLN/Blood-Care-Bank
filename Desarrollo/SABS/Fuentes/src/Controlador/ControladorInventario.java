@@ -2,6 +2,7 @@
 package Controlador;
 
 import Datos.Repositorio;
+import Modelo.ConsultasSangre;
 import Modelo.Sangre;
 import Vista.frmInventario;
 import Vista.frmPrincipal;
@@ -23,7 +24,7 @@ public class ControladorInventario {
         this.modelo = modelo;
         
                 
-        addRowToTblInventario();
+        //addRowToTblInventario();
         
         this.vista.btnRegresar.addActionListener(new ActionListener(){
             public void actionPerformed (ActionEvent e){
@@ -35,7 +36,11 @@ public class ControladorInventario {
         );
 
     }
-    
+    public void actualizarTabla() {
+          this.vista.tbl_Inventario.setModel(ConsultasSangre.listar());
+          //ConsultasMascotas.llenar();
+    }
+    /*
     public void addRowToTblInventario(){
         DefaultTableModel tblModel = (DefaultTableModel) vista.tbl_Inventario.getModel();
         ArrayList<Sangre> lista = modelo;
@@ -49,12 +54,14 @@ public class ControladorInventario {
             tblModel.addRow(rowData);
         }
     }
-    
+    */
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+        actualizarTabla();
     }
     
+    /*
     public ArrayList<Sangre> calcVolumenTotal(ArrayList<Sangre> unorderedList){
         float volAPlus = 0, volBPlus = 0, volABPlus = 0, volOPlus = 0, volANega = 0, volBNega = 0, volABNega = 0, volONega = 0;
         
@@ -112,4 +119,5 @@ public class ControladorInventario {
         
         return orderedList;
     }
+*/
 }

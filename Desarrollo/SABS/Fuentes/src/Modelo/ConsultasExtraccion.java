@@ -10,7 +10,13 @@ import javax.swing.table.DefaultTableModel;
 public class ConsultasExtraccion extends ConexionBaseDatos{
     
     public static DefaultTableModel listar(){
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel(){
+        @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        //no se edite
         modelo.addColumn("id");
         modelo.addColumn("Fecha");
         //modelo.addColumn("Donante");
