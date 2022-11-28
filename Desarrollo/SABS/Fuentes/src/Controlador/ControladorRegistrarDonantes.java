@@ -174,62 +174,11 @@ public class ControladorRegistrarDonantes {
         );
         
     }
-    public void actualizarTabla2() {
-        //lo del jtable
-        DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
-        this.vista.tblDonanteRepo.setModel(modelotabla);
-    }
-    public void actualizarTabla3(){
-        
-        try {
-            DefaultTableModel modelo = new DefaultTableModel();
-            vista.tblDonanteRepo.setModel(modelo);
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            ConexionBaseDatos conn = new ConexionBaseDatos();
-            Connection con = conn.conectar();
-
-            TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);//iniciamos el sorter
-            vista.tblDonanteRepo.setRowSorter(sorter);//indicamos a la tabla el sorter
-
-            String sql = "SELECT * FROM donante";
-            System.out.println(sql);
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-
-            ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
-            int cantidadColumnas = rsMd.getColumnCount();//cantidad de datos
-
-            //nombramos las columnas
-            modelo.addColumn("id");
-            modelo.addColumn("Nombre");
-            modelo.addColumn("Naci");
-            modelo.addColumn("DNI");
-            modelo.addColumn("Edad");
-            modelo.addColumn("Telefono");
-            modelo.addColumn("Correo");
-            
-
-            while (rs.next()) {//llenar cada fila
-                Object[] filas = new Object[cantidadColumnas];
-                for (int i = 0; i < cantidadColumnas; i++) {
-                    filas[i] = rs.getObject(i + 1);
-                }
-                modelo.addRow(filas);//llenamos filas
-            }
-
-            int [] anchos = {8, 50, 50, 50, 50, 50,50};
-
-            for (int x = 0; x < cantidadColumnas; x++){ //Cambie cantidadColumnas -> 4
-                vista.tblDonanteRepo.getColumnModel().getColumn(x).setPreferredWidth(anchos[x]);
-            }
-
-        } catch (SQLException ex) {
-            System.err.println(ex.toString());
-        }
-    }
+    
+    
     public void actualizarTabla(){
         this.vista.tblDonanteRepo.setModel(ConsultasDonante.listar());
+        this.vista.tblDonanteRepo.getTableHeader().setReorderingAllowed(false);//para que no se mueva
     }
     
     

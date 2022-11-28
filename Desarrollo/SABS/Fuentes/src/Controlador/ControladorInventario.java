@@ -38,6 +38,7 @@ public class ControladorInventario {
     }
     public void actualizarTabla() {
           this.vista.tbl_Inventario.setModel(ConsultasSangre.listar());
+          this.vista.tbl_Inventario.getTableHeader().setReorderingAllowed(false);//para que no se mueva
           //ConsultasMascotas.llenar();
     }
     /*

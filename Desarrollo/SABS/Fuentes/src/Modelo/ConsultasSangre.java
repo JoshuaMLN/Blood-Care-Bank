@@ -11,7 +11,12 @@ public class ConsultasSangre extends ConexionBaseDatos{
     
     //Metodo que retorna una tabla con los datos de la Base de datos
     public static DefaultTableModel listar(){
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel(){
+        @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         modelo.addColumn("id");
         modelo.addColumn("Volumen");
         modelo.addColumn("Grupo Sanguineo");
