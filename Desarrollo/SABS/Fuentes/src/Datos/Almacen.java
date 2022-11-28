@@ -5,7 +5,7 @@
  */
 package Datos;
 
-import Modelo.UnidadSangre;
+import Modelo.Sangre;
 import java.util.ArrayList;
 
 /**
@@ -13,5 +13,5 @@ import java.util.ArrayList;
  * @author JHON
  */
 public class Almacen {
-    public static ArrayList<UnidadSangre> UnidadesSangre = new ArrayList<>();
+    public static ArrayList<Sangre> UnidadesSangre = new ArrayList<>();
 }

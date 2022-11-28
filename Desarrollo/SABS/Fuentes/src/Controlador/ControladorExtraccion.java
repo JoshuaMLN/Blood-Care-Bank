@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControladorExtraccion {
     private ConsultasExtraccion modeloC = new ConsultasExtraccion();
+    private ConsultasSangre modeloU = new ConsultasSangre();
     private frmExtraccion vista;
     private ExtraccionArreglo modelo;
 //a
@@ -27,7 +28,7 @@ public class ControladorExtraccion {
                     try {
 
                         Float Volumen = Float.parseFloat(vista.txtVolumen.getText());
-                       
+                        //int Volumen = Integer.parseInt(vista.txtVolumen.getText());
 
                         if (Volumen > 0 ) {
                             ExtraccionSangre c = new ExtraccionSangre(vista.txtFechaExtraccion.getText(),Volumen, 
@@ -36,9 +37,11 @@ public class ControladorExtraccion {
                             
                             //Repositorio.extracciones.agregar(c); //AGREGAR AL REPO
                             modeloC.registrarExtraccion(c);
+                            int idSangre=modeloU.idSangre(vista.comboGrupoSang.getSelectedItem().toString() ,vista.comboRH.getSelectedItem().toString());
                             
-                            //Creamos la unidad de sangre;
-                            UnidadSangre u=new UnidadSangre(Volumen,vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString());          
+                            modeloU.añadir(idSangre, Volumen);
+
+                            Sangre u=new Sangre(Volumen,vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString());          
                             Almacen.UnidadesSangre.add(u);
 
                             //Prueba para vizualizar las unidades
