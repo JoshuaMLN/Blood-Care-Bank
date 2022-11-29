@@ -10,7 +10,7 @@ public class Usuario implements Serializable{
     public Usuario(String Usuario, String Contrasena) {
         this.Usuario = Usuario;
         this.Contrasena = Contrasena;
-        this.Estado=false;
+        this.Estado = false;
     }
     
     public boolean Actividad() {

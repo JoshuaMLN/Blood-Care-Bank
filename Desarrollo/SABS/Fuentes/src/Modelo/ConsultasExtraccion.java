@@ -56,7 +56,7 @@ public class ConsultasExtraccion extends ConexionBaseDatos{
     }
     
     public boolean registrarExtraccion(ExtraccionSangre ext){
-        PreparedStatement ps=null;
+        PreparedStatement ps = null;
         Connection con=conectar();
         String sql = ("INSERT INTO extracsangre(fecha_extrac,vol_extrac,grupo_extrac,rh_extrac) VALUES (?,?,?,?)");//sentencia_guardar
         try {
