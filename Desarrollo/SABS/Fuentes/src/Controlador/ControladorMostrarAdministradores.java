@@ -38,13 +38,15 @@ public class ControladorMostrarAdministradores {
     
     private void setModelo(){
         String[] cabecera = {"USUARIO", "CONTRASEÑA"};
+        /*
         DefaultTableModel admins = new DefaultTableModel(this.modelo.getAdmin(), cabecera){
         @Override
             public boolean isCellEditable(int row, int column){
                 return false;
             }
-        };
-        this.vista.tblAdministradores.setModel(admins);
+        };*/
+        //this.vista.tblAdministradores.setModel(admins);
+        this.vista.tblAdministradores.setModel(ConsultasAdministradores.listar());
         this.vista.tblAdministradores.getTableHeader().setReorderingAllowed(false);//no mueva
     }
     

@@ -2,6 +2,7 @@
 package Controlador;
 
 import Datos.Repositorio;
+import Modelo.ConsultasAdministradores;
 import Modelo.Usuario;
 import Modelo.UsuarioArreglo;
 import Vista.frmPrincipal;
@@ -46,7 +47,6 @@ public class ControladorSistema {
                 }
             }
         );
-        
     }
     
     public void iniciar(){
