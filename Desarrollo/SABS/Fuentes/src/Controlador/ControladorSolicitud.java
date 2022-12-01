@@ -7,6 +7,7 @@ import Datos.*;
 import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JRadioButton;
@@ -23,7 +24,7 @@ public class ControladorSolicitud {
         this.vista = vista;
         this.modelo = modelo;
         
-        this.vista.btnCancelar.addActionListener(new ActionListener() {
+        this.vista.btnRegresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 ControladorPrincipal controlador = new ControladorPrincipal(Repositorio.usuario_validado, new frmPrincipal());
                 controlador.iniciar();
@@ -39,35 +40,33 @@ public class ControladorSolicitud {
                 String Rh = null;
                 float Cantidad;
 
-                if(vista.text_Motivo.getText().isEmpty()||vista.text_Cantidad.getText().isEmpty()){
+                if(vista.text_Nombre.getText().isEmpty()||vista.text_Motivo.getText().isEmpty()||vista.text_Cantidad.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
-                } 
+                }
                 else{
                     Nombre = String.valueOf(vista.text_Nombre.getText());
                     Motivo = String.valueOf(vista.text_Motivo.getText());
-                    if(vista.Sangre_A.isSelected()){
-                        GrupoSanguineo=vista.Sangre_A.getText();
+                    for(Enumeration i=vista.Sangre.getElements(); i.hasMoreElements();)//Ver que boton del grupo SANGRE esta presionado
+                    {
+                        JRadioButton btn = (JRadioButton)i.nextElement();
+                        if (btn.getModel() == vista.Sangre.getSelection())
+                        {
+                            GrupoSanguineo=btn.getText();
+                        }
                     }
-                    else if(vista.Sangre_B.isSelected()){
-                        GrupoSanguineo=vista.Sangre_B.getText();
-                    }
-                    else if(vista.Sangre_AB.isSelected()){
-                        GrupoSanguineo=vista.Sangre_AB.getText();
-                    }
-                    else if(vista.Sangre_O.isSelected()){
-                        GrupoSanguineo=vista.Sangre_O.getText();
-                    }
-                    if(vista.Sangre_Pos.isSelected()){
-                        Rh = vista.Sangre_Pos.getText();;
-                    }
-                    else if(vista.Sangre_Neg.isSelected()){
-                        Rh = vista.Sangre_Neg.getText();;
+                    for(Enumeration i=vista.Signo.getElements(); i.hasMoreElements();)//Ver que boton del grupo SIGNO esta presionado
+                    {
+                        JRadioButton btn = (JRadioButton)i.nextElement();
+                        if (btn.getModel() == vista.Signo.getSelection())
+                        {
+                            Rh=btn.getText();
+                        }
                     }
                     Cantidad = Float.parseFloat(vista.text_Cantidad.getText());
                     Solicitud em = new Solicitud(Nombre,Motivo,GrupoSanguineo,Rh,Cantidad);
                     //Repositorio.solicitudes.agregar(em);
                     modeloC.registrarSolicitud(em);
-                    System.out.println("Solicitud AGREGADO");
+                    System.out.println("Solicitud AGREGADA");
                     JOptionPane.showMessageDialog(null, "Solicitud Agregada");
                     actualizarTabla();
                     limpiarCampos();
@@ -97,6 +96,7 @@ public class ControladorSolicitud {
         this.vista.tbl_Solicitudes.setModel(ConsultasSolicitud.listar());
     }
     public void limpiarCampos(){
+        this.vista.text_Nombre.setText("");
         this.vista.text_Motivo.setText("");
         this.vista.text_Cantidad.setText("");
     }

@@ -49,9 +49,9 @@ public class frmSolicitud extends javax.swing.JFrame {
         Panel_Solicitudes = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_Solicitudes = new javax.swing.JTable();
-        btnEliminar = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,9 +158,9 @@ public class frmSolicitud extends javax.swing.JFrame {
                     .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Panel_DatosLayout.createSequentialGroup()
                         .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_Motivo)
+                            .addComponent(text_Motivo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(Motivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(text_Nombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(text_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(Panel_DatosLayout.createSequentialGroup()
                                 .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Panel_DatosLayout.createSequentialGroup()
@@ -243,10 +243,10 @@ public class frmSolicitud extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_Solicitudes);
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -260,7 +260,7 @@ public class frmSolicitud extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_SolicitudesLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnEliminar)))
+                        .addComponent(btnRegresar)))
                 .addContainerGap())
         );
         Panel_SolicitudesLayout.setVerticalGroup(
@@ -269,7 +269,7 @@ public class frmSolicitud extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar)
+                .addComponent(btnRegresar)
                 .addGap(7, 7, 7))
         );
 
@@ -280,10 +280,10 @@ public class frmSolicitud extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -294,11 +294,11 @@ public class frmSolicitud extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Panel_Datos, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnAgregar))
-                    .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -307,14 +307,14 @@ public class frmSolicitud extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelar)
-                            .addComponent(btnAgregar))))
+                            .addComponent(btnAgregar)
+                            .addComponent(btnEliminar))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -327,7 +327,7 @@ public class frmSolicitud extends javax.swing.JFrame {
 
     private void text_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_CantidadKeyTyped
         char c=evt.getKeyChar();
-        if(c<'0'||c>'9') evt.consume();
+        if(c<'0'&c!='.'||c>'9'&c!='.') evt.consume();
     }//GEN-LAST:event_text_CantidadKeyTyped
 
     private void Sangre_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sangre_AActionPerformed
@@ -362,13 +362,13 @@ public class frmSolicitud extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void text_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_NombreKeyTyped
         char c=evt.getKeyChar();
-        if((c<'a'||c>'z')&&(c<'A'||c>'Z')) evt.consume();
+        if((c<'a'&c!=' '||c>'z'&c!=' ')&&(c<'A'&c!=' '||c>'Z'&c!=' ')) evt.consume();
     }//GEN-LAST:event_text_NombreKeyTyped
 
     /**
@@ -420,12 +420,12 @@ public class frmSolicitud extends javax.swing.JFrame {
     public javax.swing.JRadioButton Sangre_O;
     public javax.swing.JRadioButton Sangre_Pos;
     private javax.swing.JSeparator Separador_Sangre;
-    private javax.swing.ButtonGroup Signo;
+    public javax.swing.ButtonGroup Signo;
     private javax.swing.JLabel Tipo_de_Sangre;
     private javax.swing.JLabel Tipo_de_Sangre1;
     public javax.swing.JButton btnAgregar;
-    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tbl_Solicitudes;
