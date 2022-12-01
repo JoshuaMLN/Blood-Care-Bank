@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorExtraccion {
     private ConsultasExtraccion modeloC = new ConsultasExtraccion();
     private ConsultasSangre modeloU = new ConsultasSangre();
+    private ConsultasDonante modeloD = new ConsultasDonante();
     private frmExtraccion vista;
     private ExtraccionArreglo modelo;
 //a
@@ -33,7 +34,7 @@ public class ControladorExtraccion {
                         if (Volumen > 0 ) {
                             ExtraccionSangre c = new ExtraccionSangre(vista.txtFechaExtraccion.getText(),Volumen, 
                                     vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString(),
-                                    (Donante)vista.comboDonantes.getSelectedItem());
+                                    vista.comboDonantes.getSelectedItem().toString());
                             
                             //Repositorio.extracciones.agregar(c); //AGREGAR AL REPO
                             modeloC.registrarExtraccion(c);
@@ -118,17 +119,21 @@ public class ControladorExtraccion {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
         this.vista.tblExtRepo.setEditingColumn(2);
-
-        //lo del combobox donantes
         DefaultComboBoxModel modeloCboEmpleados = new DefaultComboBoxModel();
+        modeloD.comboDonante(modeloCboEmpleados);
+        this.vista.comboDonantes.setModel(modeloCboEmpleados);
+        //lo del combobox donantes
+        /*
+        
         
         for (Donante e : Repositorio.donantes.getDatosCombo()) {
             modeloCboEmpleados.addElement(e);
         }
         //le doy al combo del form el modelo
         this.vista.comboDonantes.setModel(modeloCboEmpleados);
-
+*/
         //lo del jtable
+        
         actualizarTabla();
     }
 }

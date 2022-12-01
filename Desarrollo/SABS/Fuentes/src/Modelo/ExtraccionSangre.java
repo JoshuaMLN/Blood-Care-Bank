@@ -11,9 +11,10 @@ public class ExtraccionSangre {
     private String Rh;
     //Buenas
 
-    private Donante donante;
-
-    public ExtraccionSangre(String Fecha, float Volumen, String GrupoSanguineo, String Rh, Donante donante) {
+    //private Donante donante;
+    private String donante;
+    
+    public ExtraccionSangre(String Fecha, float Volumen, String GrupoSanguineo, String Rh, String donante) {
         this.codigo=contador;
         contador++;
         this.Fecha = Fecha;
@@ -63,13 +64,15 @@ public class ExtraccionSangre {
         this.Rh = Rh;
     }
 
-    public Donante getDonante() {
+    public String getDonante() {
         return donante;
     }
 
-    public void setDonante(Donante donante) {
+    public void setDonante(String donante) {
         this.donante = donante;
     }
+
+    
     
 
     

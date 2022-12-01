@@ -34,13 +34,13 @@ public class frmDonantes extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombreDonante = new javax.swing.JTextField();
-        txtFechaNacimiento = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         txtDNIEmpleado = new javax.swing.JTextField();
         lblTelefonoEmpleado = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
+        txtFechaNac = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
@@ -85,12 +85,12 @@ public class frmDonantes extends javax.swing.JFrame {
         });
         jPanel1.add(txtNombreDonante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, -1));
 
-        txtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaNacimientoActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 120, -1));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 120, -1));
         jPanel1.add(txtDNIEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 120, -1));
         jPanel1.add(lblTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
 
@@ -102,7 +102,7 @@ public class frmDonantes extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Fecha Nacimiento:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 120, -1));
+        jPanel1.add(txtFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 120, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("REGISTRO DE PERSONA");
@@ -170,9 +170,9 @@ public class frmDonantes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreDonanteActionPerformed
 
-    private void txtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaNacimientoActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void btnEditarOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarOKActionPerformed
         // TODO add your handling code here:
@@ -254,7 +254,7 @@ public class frmDonantes extends javax.swing.JFrame {
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDNIEmpleado;
     public javax.swing.JTextField txtEdad;
-    public javax.swing.JTextField txtFechaNacimiento;
+    public javax.swing.JTextField txtFechaNac;
     public javax.swing.JTextField txtNombreDonante;
     // End of variables declaration//GEN-END:variables
 }

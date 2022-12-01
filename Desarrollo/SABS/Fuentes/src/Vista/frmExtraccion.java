@@ -64,8 +64,6 @@ public class frmExtraccion extends javax.swing.JFrame {
 
         jLabel5.setText("Grupo Sanguineo");
 
-        comboDonantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         comboGrupoSang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "O", "AB" }));
 
         jLabel8.setText("Volumen");

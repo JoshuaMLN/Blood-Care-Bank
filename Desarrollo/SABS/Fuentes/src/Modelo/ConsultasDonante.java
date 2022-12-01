@@ -4,6 +4,8 @@ package Modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -103,7 +105,21 @@ public class ConsultasDonante extends ConexionBaseDatos{
         }
     }
     
-    
+    public void comboDonante(DefaultComboBoxModel donantes){
+        PreparedStatement ps=null;
+        Connection con=conectar();
+        ResultSet rs;
+        String sql = ("SELECT nombre_d FROM donante");
+        try {
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                donantes.addElement(rs.getString("nombre_d"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }
 
     
 }
