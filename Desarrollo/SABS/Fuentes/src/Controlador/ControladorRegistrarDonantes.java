@@ -103,7 +103,7 @@ public class ControladorRegistrarDonantes {
                 } else {
                     int valor = Integer.parseInt(vista.tblDonanteRepo.getValueAt(fila, 0).toString());//codigo de donante
                     codEditar=valor;
-                    Donante donante = modelo.devolverDonante(valor);
+                    Donante donante = modeloC.buscar(valor);
                     llenarCampos(donante);
                     
                     //Desabilitamos los demas botones
@@ -127,7 +127,7 @@ public class ControladorRegistrarDonantes {
                 String numTelefono;
                 int edad;
                 //donante
-                Donante donante = modelo.devolverDonante(codEditar);
+                Donante donante = new Donante();
                 
                 if (vista.txtCorreo.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
                         || vista.txtNombreDonante.getText().isEmpty() || vista.txtFechaNac.getText().isEmpty()
@@ -140,11 +140,13 @@ public class ControladorRegistrarDonantes {
                         try {
                             edad = Integer.parseInt(vista.txtEdad.getText());
                             donante.setNombre(vista.txtNombreDonante.getText());
-                            donante.setCorreo(vista.txtFechaNac.getText());
+                            donante.setFechaNac(vista.txtFechaNac.getText());
                             donante.setDNI(vista.txtDNIEmpleado.getText());
-                            donante.setTelefono(numTelefono);
-                            donante.setFechaNac(vista.txtCorreo.getText());
                             donante.setEdad(edad);
+                            donante.setTelefono(numTelefono);
+                            donante.setCorreo(vista.txtCorreo.getText());
+
+                            modeloC.editaDonate(codEditar, donante);
                             
                             JOptionPane.showMessageDialog(null, "Donante editado");
                             actualizarTabla();
@@ -192,10 +194,10 @@ public class ControladorRegistrarDonantes {
     }
     public void llenarCampos(Donante donante){
         this.vista.txtNombreDonante.setText(donante.getNombre());
-        this.vista.txtFechaNac.setText(donante.getCorreo());
+        this.vista.txtFechaNac.setText(donante.getFechaNac());
         this.vista.txtDNIEmpleado.setText(donante.getDNI());
         this.vista.lblTelefonoEmpleado.setText(String.valueOf(donante.getTelefono()));
-        this.vista.txtCorreo.setText(donante.getFechaNac());
+        this.vista.txtCorreo.setText(donante.getCorreo());
         this.vista.txtEdad.setText(String.valueOf(donante.getEdad()));
     }
     public void iniciar() {

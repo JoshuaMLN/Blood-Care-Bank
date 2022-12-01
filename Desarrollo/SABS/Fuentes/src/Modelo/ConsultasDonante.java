@@ -120,6 +120,52 @@ public class ConsultasDonante extends ConexionBaseDatos{
             System.out.println(e.toString());
         }
     }
-
+    
+    //Metodo para editar datos de un donante
+    public void editaDonate(int idDon, Donante donante){
+        Connection conexion=conectar();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        try {
+            String sql = "UPDATE donante set nombre_d=?,fecha_naci=?,dni_d=?,edad_d=?,telf_d=?,correo_d=? WHERE id_donante=?";
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, donante.getNombre());
+            ps.setString(2, donante.getFechaNac());
+            ps.setString(3, donante.getDNI());
+            ps.setInt(4, donante.getEdad());
+            ps.setString(5, donante.getTelefono());
+            ps.setString(6, donante.getCorreo());
+            ps.setInt(7, idDon);
+            ps.execute();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    //Método para buscar cliente
+    public Donante buscar(int id){
+        Connection con=conectar();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        Donante d = new Donante();
+        String sql = "select * from donante where id_donante=?";
+        try{
+            
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                d.setNombre(rs.getString(2));
+                d.setFechaNac(rs.getString(3));
+                d.setDNI(rs.getString(4));
+                d.setEdad(rs.getInt(5));
+                d.setTelefono(rs.getString(6));
+                d.setCorreo(rs.getString(7));
+            }
+        }catch(SQLException e){
+            System.out.println(e.toString());
+        }
+        return d;
+    }
     
 }
