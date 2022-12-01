@@ -8,6 +8,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.ButtonGroup" name="Signo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -78,7 +81,6 @@
               <Color blue="5f" green="5f" red="f3" type="rgb"/>
             </Property>
           </Properties>
-
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">

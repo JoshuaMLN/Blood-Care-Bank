@@ -369,7 +369,7 @@ public class frmSolicitud extends javax.swing.JFrame {
 
     private void text_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_CantidadKeyTyped
         char c=evt.getKeyChar();
-        if(c<'0'||c>'9') evt.consume();
+        if(c<'0'&c!='.'||c>'9'&c!='.') evt.consume();
     }//GEN-LAST:event_text_CantidadKeyTyped
 
     private void Sangre_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sangre_AActionPerformed
@@ -404,13 +404,13 @@ public class frmSolicitud extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void text_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_NombreKeyTyped
         char c=evt.getKeyChar();
-        if((c<'a'||c>'z')&&(c<'A'||c>'Z')) evt.consume();
+        if((c<'a'&c!=' '||c>'z'&c!=' ')&&(c<'A'&c!=' '||c>'Z'&c!=' ')) evt.consume();
     }//GEN-LAST:event_text_NombreKeyTyped
 
     /**
@@ -462,12 +462,12 @@ public class frmSolicitud extends javax.swing.JFrame {
     public javax.swing.JRadioButton Sangre_O;
     public javax.swing.JRadioButton Sangre_Pos;
     private javax.swing.JSeparator Separador_Sangre;
-    private javax.swing.ButtonGroup Signo;
+    public javax.swing.ButtonGroup Signo;
     private javax.swing.JLabel Tipo_de_Sangre;
     private javax.swing.JLabel Tipo_de_Sangre1;
     public javax.swing.JButton btnAgregar;
-    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
