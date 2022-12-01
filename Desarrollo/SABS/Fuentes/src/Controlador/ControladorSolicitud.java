@@ -17,7 +17,7 @@ public class ControladorSolicitud {
     private SolicitudArreglo modelo;
     
     private ConsultasSolicitud modeloC = new ConsultasSolicitud();
-    
+    private ConsultasSangre modeloU = new ConsultasSangre();
     private int codEditar=0;//codigo del donante a editar
     
     public ControladorSolicitud(frmSolicitud vista, SolicitudArreglo modelo) {
@@ -64,10 +64,18 @@ public class ControladorSolicitud {
                     }
                     Cantidad = Float.parseFloat(vista.text_Cantidad.getText());
                     Solicitud em = new Solicitud(Nombre,Motivo,GrupoSanguineo,Rh,Cantidad);
-                    //Repositorio.solicitudes.agregar(em);
-                    modeloC.registrarSolicitud(em);
-                    System.out.println("Solicitud AGREGADA");
-                    JOptionPane.showMessageDialog(null, "Solicitud Agregada");
+                    int idSangre = modeloU.idSangre(GrupoSanguineo, Rh);
+                    if (modeloU.verificaVolumen(idSangre)>=Cantidad){
+                        modeloU.disminuir(idSangre, Cantidad);
+                        //Repositorio.solicitudes.agregar(em);
+                        modeloC.registrarSolicitud(em);
+                        System.out.println("Solicitud AGREGADA");
+                        JOptionPane.showMessageDialog(null, "Solicitud Agregada");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "No se cuenta con esa cantidad de sangre.");
+                    }
+
                     actualizarTabla();
                     limpiarCampos();
                 }
