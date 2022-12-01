@@ -29,6 +29,12 @@ public class frmSolicitud extends javax.swing.JFrame {
 
         Sangre = new javax.swing.ButtonGroup();
         Signo = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        Panel_Solicitudes = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_Solicitudes = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JButton();
         Panel_Datos = new javax.swing.JPanel();
         Nombre = new javax.swing.JLabel();
         text_Nombre = new javax.swing.JTextArea();
@@ -46,14 +52,58 @@ public class frmSolicitud extends javax.swing.JFrame {
         text_Cantidad = new javax.swing.JTextField();
         Tipo_de_Sangre1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        Panel_Solicitudes = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_Solicitudes = new javax.swing.JTable();
-        btnEliminar = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(50, 225, 108));
+
+        jPanel1.setBackground(new java.awt.Color(243, 95, 95));
+
+        Panel_Solicitudes.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabla de Solicitudes"));
+        Panel_Solicitudes.setToolTipText("");
+
+        tbl_Solicitudes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Motivo", "Grupo Sanguíneo", "Rh", "Cantidad (L)", "Fecha"
+            }
+        ));
+        jScrollPane1.setViewportView(tbl_Solicitudes);
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_SolicitudesLayout = new javax.swing.GroupLayout(Panel_Solicitudes);
+        Panel_Solicitudes.setLayout(Panel_SolicitudesLayout);
+        Panel_SolicitudesLayout.setHorizontalGroup(
+            Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_SolicitudesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_SolicitudesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)))
+                .addContainerGap())
+        );
+        Panel_SolicitudesLayout.setVerticalGroup(
+            Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_SolicitudesLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminar)
+                .addGap(7, 7, 7))
+        );
 
         Panel_Datos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del solicitante", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -132,7 +182,7 @@ public class frmSolicitud extends javax.swing.JFrame {
 
         Cantidad.setText("Cantidad:");
 
-        text_Cantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        text_Cantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         text_Cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_CantidadActionPerformed(evt);
@@ -158,9 +208,9 @@ public class frmSolicitud extends javax.swing.JFrame {
                     .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Panel_DatosLayout.createSequentialGroup()
                         .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_Motivo)
+                            .addComponent(text_Motivo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(Motivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(text_Nombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(text_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(Panel_DatosLayout.createSequentialGroup()
                                 .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Panel_DatosLayout.createSequentialGroup()
@@ -181,7 +231,7 @@ public class frmSolicitud extends javax.swing.JFrame {
                                         .addGroup(Panel_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Sangre_Pos)
                                             .addComponent(Sangre_Neg))))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 11, Short.MAX_VALUE))
                             .addGroup(Panel_DatosLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(Cantidad)
@@ -230,48 +280,12 @@ public class frmSolicitud extends javax.swing.JFrame {
                 .addGap(34, 34, 34))
         );
 
-        Panel_Solicitudes.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabla de Solicitudes"));
-        Panel_Solicitudes.setToolTipText("");
-
-        tbl_Solicitudes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre", "Motivo", "Grupo Sanguíneo", "Rh", "Cantidad (L)", "Fecha"
-            }
-        ));
-        jScrollPane1.setViewportView(tbl_Solicitudes);
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout Panel_SolicitudesLayout = new javax.swing.GroupLayout(Panel_Solicitudes);
-        Panel_Solicitudes.setLayout(Panel_SolicitudesLayout);
-        Panel_SolicitudesLayout.setHorizontalGroup(
-            Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_SolicitudesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_SolicitudesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnEliminar)))
-                .addContainerGap())
-        );
-        Panel_SolicitudesLayout.setVerticalGroup(
-            Panel_SolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_SolicitudesLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar)
-                .addGap(7, 7, 7))
-        );
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -280,42 +294,70 @@ public class frmSolicitud extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Panel_Datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregar)
+                        .addGap(28, 28, 28)))
+                .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCancelar)
+                            .addComponent(btnAgregar))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("SOLICITUDES");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(329, 329, 329))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnAgregar))
-                    .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Panel_Solicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelar)
-                            .addComponent(btnAgregar))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -427,6 +469,9 @@ public class frmSolicitud extends javax.swing.JFrame {
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tbl_Solicitudes;
     public javax.swing.JTextField text_Cantidad;

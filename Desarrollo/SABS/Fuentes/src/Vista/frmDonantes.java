@@ -27,6 +27,7 @@ public class frmDonantes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -40,32 +41,40 @@ public class frmDonantes extends javax.swing.JFrame {
         txtEdad = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnEditarOK = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnEditar1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDonanteRepo = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(243, 95, 95));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro de persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(243, 95, 95));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Nombre: ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Correo:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("DNI:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Teléfono (celular):");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
@@ -85,17 +94,23 @@ public class frmDonantes extends javax.swing.JFrame {
         jPanel1.add(txtDNIEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 120, -1));
         jPanel1.add(lblTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 120, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Edad:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 120, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Fecha Nacimiento:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 120, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("REGISTRO DE PERSONA");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 210, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 290));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.setBackground(new java.awt.Color(243, 95, 95));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCancelar.setText("Cancelar");
@@ -119,7 +134,8 @@ public class frmDonantes extends javax.swing.JFrame {
         jPanel2.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 70, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 710, 60));
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 250));
+
+        jPanel4.setBackground(new java.awt.Color(243, 95, 95));
 
         tblDonanteRepo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -136,7 +152,16 @@ public class frmDonantes extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane1);
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 480, 210));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 470, 210));
+
+        jPanel5.setBackground(new java.awt.Color(243, 95, 95));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 850, 370));
+
+        jPanel6.setBackground(new java.awt.Color(50, 225, 108));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 30));
+
+        jPanel7.setBackground(new java.awt.Color(50, 225, 108));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 850, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,10 +240,14 @@ public class frmDonantes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField lblTelefonoEmpleado;
     public javax.swing.JTable tblDonanteRepo;
