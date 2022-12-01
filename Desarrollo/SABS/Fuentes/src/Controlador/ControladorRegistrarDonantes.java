@@ -30,8 +30,8 @@ public class ControladorRegistrarDonantes {
             public void actionPerformed(ActionEvent e) {
                 String numTelefono;
                 int edad;
-                if (vista.txtFechaNacimiento.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
-                        || vista.txtNombreDonante.getText().isEmpty() || vista.txtCorreo.getText().isEmpty()
+                if (vista.txtCorreo.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
+                        || vista.txtNombreDonante.getText().isEmpty() || vista.txtFechaNac.getText().isEmpty()
                         || vista.txtDNIEmpleado.getText().isEmpty() || vista.lblTelefonoEmpleado.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } else {
@@ -40,7 +40,7 @@ public class ControladorRegistrarDonantes {
                         numTelefono=vista.lblTelefonoEmpleado.getText();
                         try {
                             edad = Integer.parseInt(vista.txtEdad.getText());
-                            Donante em = new Donante(vista.txtFechaNacimiento.getText(),
+                            Donante em = new Donante(vista.txtFechaNac.getText(),
                                     edad, vista.txtNombreDonante.getText(),
                                     vista.txtCorreo.getText(), vista.txtDNIEmpleado.getText(),
                                     numTelefono);
@@ -103,7 +103,7 @@ public class ControladorRegistrarDonantes {
                 } else {
                     int valor = Integer.parseInt(vista.tblDonanteRepo.getValueAt(fila, 0).toString());//codigo de donante
                     codEditar=valor;
-                    Donante donante = modelo.devolverDonante(valor);
+                    Donante donante = modeloC.buscar(valor);
                     llenarCampos(donante);
                     
                     //Desabilitamos los demas botones
@@ -127,10 +127,10 @@ public class ControladorRegistrarDonantes {
                 String numTelefono;
                 int edad;
                 //donante
-                Donante donante = modelo.devolverDonante(codEditar);
+                Donante donante = new Donante();
                 
-                if (vista.txtFechaNacimiento.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
-                        || vista.txtNombreDonante.getText().isEmpty() || vista.txtCorreo.getText().isEmpty()
+                if (vista.txtCorreo.getText().isEmpty() || vista.txtEdad.getText().isEmpty()
+                        || vista.txtNombreDonante.getText().isEmpty() || vista.txtFechaNac.getText().isEmpty()
                         || vista.txtDNIEmpleado.getText().isEmpty() || vista.lblTelefonoEmpleado.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Complete todos los campos");
                 } else {
@@ -140,11 +140,13 @@ public class ControladorRegistrarDonantes {
                         try {
                             edad = Integer.parseInt(vista.txtEdad.getText());
                             donante.setNombre(vista.txtNombreDonante.getText());
-                            donante.setCorreo(vista.txtCorreo.getText());
+                            donante.setFechaNac(vista.txtFechaNac.getText());
                             donante.setDNI(vista.txtDNIEmpleado.getText());
-                            donante.setTelefono(numTelefono);
-                            donante.setFechaNac(vista.txtFechaNacimiento.getText());
                             donante.setEdad(edad);
+                            donante.setTelefono(numTelefono);
+                            donante.setCorreo(vista.txtCorreo.getText());
+
+                            modeloC.editaDonate(codEditar, donante);
                             
                             JOptionPane.showMessageDialog(null, "Donante editado");
                             actualizarTabla();
@@ -167,14 +169,11 @@ public class ControladorRegistrarDonantes {
                         JOptionPane.showMessageDialog(null, "Num. celular invalido");
                     }
                 }
-                
-
             }
         }
         );
         
     }
-    
     
     public void actualizarTabla(){
         this.vista.tblDonanteRepo.setModel(ConsultasDonante.listar());
@@ -185,18 +184,18 @@ public class ControladorRegistrarDonantes {
     
     public void limpiarCampos(){
         this.vista.txtNombreDonante.setText("");
-        this.vista.txtCorreo.setText("");
+        this.vista.txtFechaNac.setText("");
         this.vista.txtDNIEmpleado.setText("");
         this.vista.lblTelefonoEmpleado.setText("");
-        this.vista.txtFechaNacimiento.setText("");
+        this.vista.txtCorreo.setText("");
         this.vista.txtEdad.setText("");
     }
     public void llenarCampos(Donante donante){
         this.vista.txtNombreDonante.setText(donante.getNombre());
-        this.vista.txtCorreo.setText(donante.getCorreo());
+        this.vista.txtFechaNac.setText(donante.getFechaNac());
         this.vista.txtDNIEmpleado.setText(donante.getDNI());
         this.vista.lblTelefonoEmpleado.setText(String.valueOf(donante.getTelefono()));
-        this.vista.txtFechaNacimiento.setText(donante.getFechaNac());
+        this.vista.txtCorreo.setText(donante.getCorreo());
         this.vista.txtEdad.setText(String.valueOf(donante.getEdad()));
     }
     public void iniciar() {

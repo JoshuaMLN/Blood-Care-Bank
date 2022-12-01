@@ -34,7 +34,11 @@ public class SABS {
         Repositorio.donantes.agregar(empleado1);
         Donante empleado2= new Donante("joseph@gmail.com", 18, "Joseph", "11-11-11", "74105896", "983511012");
         Repositorio.donantes.agregar(empleado2);
-        
+
+        Solicitud solicitud1= new Solicitud("EsSalud","Pacientes con cancer", "A", "+", 10);
+        Repositorio.solicitudes.agregar(solicitud1);
+        //a
+
         //Inicio de controlador Sistema (Login)
         //prueba de consulta sangre:
         /*

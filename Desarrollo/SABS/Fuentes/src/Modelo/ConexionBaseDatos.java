@@ -11,6 +11,7 @@ public class ConexionBaseDatos {
     
     public static String url = "jdbc:mysql://localhost/bancosangre";
     public static String usuario = "root";
+
     public static String contraseña = "";
 
     public static String clase = "com.mysql.cj.jdbc.Driver";//antes com.mysql.jdbc.Driver
