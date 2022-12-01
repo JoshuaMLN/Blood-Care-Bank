@@ -52,11 +52,12 @@ public class frmSolicitud extends javax.swing.JFrame {
         text_Cantidad = new javax.swing.JTextField();
         Tipo_de_Sangre1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SABS");
 
         jPanel2.setBackground(new java.awt.Color(50, 225, 108));
 
@@ -280,10 +281,10 @@ public class frmSolicitud extends javax.swing.JFrame {
                 .addGap(34, 34, 34))
         );
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setText("Cancelar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -305,7 +306,7 @@ public class frmSolicitud extends javax.swing.JFrame {
                         .addComponent(Panel_Datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
+                        .addComponent(btnRegresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregar)
                         .addGap(28, 28, 28)))
@@ -322,7 +323,7 @@ public class frmSolicitud extends javax.swing.JFrame {
                         .addComponent(Panel_Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelar)
+                            .addComponent(btnRegresar)
                             .addComponent(btnAgregar))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -369,7 +370,7 @@ public class frmSolicitud extends javax.swing.JFrame {
 
     private void text_CantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_CantidadKeyTyped
         char c=evt.getKeyChar();
-        if(c<'0'&c!='.'||c>'9'&c!='.') evt.consume();
+        if(c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_text_CantidadKeyTyped
 
     private void Sangre_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sangre_AActionPerformed
@@ -410,7 +411,7 @@ public class frmSolicitud extends javax.swing.JFrame {
 
     private void text_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_NombreKeyTyped
         char c=evt.getKeyChar();
-        if((c<'a'&c!=' '||c>'z'&c!=' ')&&(c<'A'&c!=' '||c>'Z'&c!=' ')) evt.consume();
+        if((c<'a'||c>'z')&&(c<'A'||c>'Z')) evt.consume();
     }//GEN-LAST:event_text_NombreKeyTyped
 
     /**
@@ -438,6 +439,7 @@ public class frmSolicitud extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmSolicitud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

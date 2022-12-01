@@ -54,6 +54,7 @@ public class ControladorSolicitud {
                             GrupoSanguineo=btn.getText();
                         }
                     }
+                    
                     for(Enumeration i=vista.Signo.getElements(); i.hasMoreElements();)//Ver que boton del grupo SIGNO esta presionado
                     {
                         JRadioButton btn = (JRadioButton)i.nextElement();
@@ -65,6 +66,13 @@ public class ControladorSolicitud {
                     Cantidad = Float.parseFloat(vista.text_Cantidad.getText());
                     Solicitud em = new Solicitud(Nombre,Motivo,GrupoSanguineo,Rh,Cantidad);
                     int idSangre = modeloU.idSangre(GrupoSanguineo, Rh);
+                    System.out.println(modeloU.idSangre("A", "+"));
+                    System.out.println(idSangre);
+                    System.out.println(Cantidad);
+                    System.out.println(modeloU.verificaVolumen(idSangre));
+                    System.out.println("");
+                    
+                    
                     if (modeloU.verificaVolumen(idSangre)>=Cantidad){
                         modeloU.disminuir(idSangre, Cantidad);
                         //Repositorio.solicitudes.agregar(em);

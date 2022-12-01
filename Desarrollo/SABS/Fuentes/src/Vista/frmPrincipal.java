@@ -45,6 +45,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SABS");
         setBackground(new java.awt.Color(243, 95, 95));
 
         jPanel1.setBackground(new java.awt.Color(243, 95, 95));

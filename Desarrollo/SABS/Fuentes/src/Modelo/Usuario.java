@@ -7,6 +7,10 @@ public class Usuario implements Serializable{
     private String Contrasena;
     private boolean Estado;
 
+    public Usuario() {
+    }
+    
+
     public Usuario(String Usuario, String Contrasena) {
         this.Usuario = Usuario;
         this.Contrasena = Contrasena;

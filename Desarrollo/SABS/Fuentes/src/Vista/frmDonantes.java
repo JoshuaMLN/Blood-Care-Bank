@@ -28,6 +28,12 @@ public class frmDonantes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btnCancelar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnEditarOK = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnEditar1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -42,22 +48,44 @@ public class frmDonantes extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtFechaNac = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        btnCancelar = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
-        btnEditarOK = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnEditar1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDonanteRepo = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SABS");
         setBackground(new java.awt.Color(243, 95, 95));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(243, 95, 95));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnCancelar.setText("Cancelar");
+        jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 110, 40));
+
+        btnRegistrar.setText("Registrar");
+        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
+
+        btnEditarOK.setText("Confirmar cambio");
+        btnEditarOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarOKActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditarOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 130, 40));
+
+        btnEliminar.setText("Eliminar");
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 40));
+
+        btnEditar1.setText("Editar");
+        jPanel2.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 70, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 710, 60));
 
         jPanel1.setBackground(new java.awt.Color(243, 95, 95));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,32 +136,7 @@ public class frmDonantes extends javax.swing.JFrame {
         jLabel7.setText("REGISTRO DE PERSONA");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 210, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 290));
-
-        jPanel2.setBackground(new java.awt.Color(243, 95, 95));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnCancelar.setText("Cancelar");
-        jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 110, 40));
-
-        btnRegistrar.setText("Registrar");
-        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 40));
-
-        btnEditarOK.setText("Confirmar cambio");
-        btnEditarOK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarOKActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEditarOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 130, 40));
-
-        btnEliminar.setText("Eliminar");
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 40));
-
-        btnEditar1.setText("Editar");
-        jPanel2.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 70, 40));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 710, 60));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 270, 290));
 
         jPanel4.setBackground(new java.awt.Color(243, 95, 95));
 
@@ -152,16 +155,25 @@ public class frmDonantes extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane1);
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 470, 210));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 460, 240));
 
         jPanel5.setBackground(new java.awt.Color(243, 95, 95));
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 850, 370));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/huellasabs-removebg-preview.png"))); // NOI18N
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 70, 90));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("HUELLA DIGITAL");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 970, 370));
 
         jPanel6.setBackground(new java.awt.Color(50, 225, 108));
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 30));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 30));
 
         jPanel7.setBackground(new java.awt.Color(50, 225, 108));
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 850, 30));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 970, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -241,6 +253,8 @@ public class frmDonantes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

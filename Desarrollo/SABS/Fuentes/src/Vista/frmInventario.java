@@ -35,6 +35,7 @@ public class frmInventario extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SABS");
 
         jPanel3.setBackground(new java.awt.Color(50, 225, 108));
 

@@ -49,6 +49,7 @@ public class frmExtraccion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SABS");
 
         jPanel4.setBackground(new java.awt.Color(50, 225, 108));
 

@@ -15,8 +15,11 @@ import Vista.frmSistema;
 
 public class SABS {
     public static void main(String[] args) {
-        
-        Repositorio.usuarios.agregar(new Usuario("user", "123"));
+        ConsultasSangre cs = new ConsultasSangre();
+        System.out.println(cs.idSangre("A", "-"));
+        ConsultasAdministradores cA = new ConsultasAdministradores();
+        cA.llenar();
+        /*Repositorio.usuarios.agregar(new Usuario("user", "123"));
         
         Donante empleado1= new Donante("josefina@gmail.com", 16, "Josefina", "12-12-12", "31501974", "954201376");
 
@@ -50,6 +53,7 @@ public class SABS {
         System.out.println(c.verificaVolumen(1));
         System.out.println(c.idSangre("AB", "-"));
         */
+        
         ControladorSistema controlador = new ControladorSistema( Repositorio.usuarios, new frmSistema() );
         controlador.iniciar();
     }
