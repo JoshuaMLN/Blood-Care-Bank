@@ -54,6 +54,7 @@ public class ConsultasSangre extends ConexionBaseDatos{
 
     
     //Metodo para saber cuanta sangre hay disponible
+    
     public float verificaVolumen(int idSan){//id de la sangre
         float busqueda_vol=-100;
         PreparedStatement ps=null;

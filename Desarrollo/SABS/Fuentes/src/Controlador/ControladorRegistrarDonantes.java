@@ -175,7 +175,6 @@ public class ControladorRegistrarDonantes {
         
     }
     
-    
     public void actualizarTabla(){
         this.vista.tblDonanteRepo.setModel(ConsultasDonante.listar());
         this.vista.tblDonanteRepo.getTableHeader().setReorderingAllowed(false);//para que no se mueva

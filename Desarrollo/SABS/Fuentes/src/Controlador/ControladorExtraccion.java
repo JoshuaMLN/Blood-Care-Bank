@@ -37,6 +37,8 @@ public class ControladorExtraccion {
                             
                             //Repositorio.extracciones.agregar(c); //AGREGAR AL REPO
                             modeloC.registrarExtraccion(c);
+                            //PARECIDO A LO DE SOLICITUD:
+                            
                             int idSangre=modeloU.idSangre(vista.comboGrupoSang.getSelectedItem().toString() ,vista.comboRH.getSelectedItem().toString());
                             
                             modeloU.añadir(idSangre, Volumen);

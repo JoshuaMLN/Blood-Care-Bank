@@ -36,7 +36,7 @@ public class SABS {
         Repositorio.donantes.agregar(empleado2);
         Solicitud solicitud1= new Solicitud("EsSalud","Pacientes con cancer", "A", "+", 10);
         Repositorio.solicitudes.agregar(solicitud1);
-        
+        //a
         //Inicio de controlador Sistema (Login)
         //prueba de consulta sangre:
         /*
