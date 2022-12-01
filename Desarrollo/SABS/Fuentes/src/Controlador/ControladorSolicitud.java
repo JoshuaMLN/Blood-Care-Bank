@@ -75,7 +75,6 @@ public class ControladorSolicitud {
                     else{
                         JOptionPane.showMessageDialog(null, "No se cuenta con esa cantidad de sangre.");
                     }
-
                     actualizarTabla();
                     limpiarCampos();
                 }
@@ -94,7 +93,9 @@ public class ControladorSolicitud {
                     modeloC.eliminarSolicitud(valor);
                     actualizarTabla();//actualizamos
                     System.out.println("Solicitud Eliminada");
+                    
                     JOptionPane.showMessageDialog(null, "Solicitud Eliminada");
+                    
                 }
             }
         }
@@ -112,6 +113,7 @@ public class ControladorSolicitud {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
         actualizarTabla();
+
     }
 }
 
