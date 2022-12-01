@@ -169,8 +169,6 @@ public class ControladorRegistrarDonantes {
                         JOptionPane.showMessageDialog(null, "Num. celular invalido");
                     }
                 }
-                
-
             }
         }
         );
