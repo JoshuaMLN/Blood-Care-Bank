@@ -10,7 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorExtraccion {
-
+    private ConsultasExtraccion modeloC = new ConsultasExtraccion();
+    private ConsultasSangre modeloU = new ConsultasSangre();
     private frmExtraccion vista;
     private ExtraccionArreglo modelo;
 //a
@@ -27,19 +28,22 @@ public class ControladorExtraccion {
                     try {
 
                         Float Volumen = Float.parseFloat(vista.txtVolumen.getText());
-                       
+                        //int Volumen = Integer.parseInt(vista.txtVolumen.getText());
 
                         if (Volumen > 0 ) {
                             ExtraccionSangre c = new ExtraccionSangre(vista.txtFechaExtraccion.getText(),Volumen, 
                                     vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString(),
                                     (Donante)vista.comboDonantes.getSelectedItem());
                             
-                            Repositorio.extracciones.agregar(c); //AGREGAR AL REPO
+                            //Repositorio.extracciones.agregar(c); //AGREGAR AL REPO
+                            modeloC.registrarExtraccion(c);
+                            int idSangre=modeloU.idSangre(vista.comboGrupoSang.getSelectedItem().toString() ,vista.comboRH.getSelectedItem().toString());
                             
-                            //Creamos la unidad de sangre;
-                            UnidadSangre u=new UnidadSangre(Volumen,vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString());
+                            modeloU.añadir(idSangre, Volumen);
+
+                            Sangre u=new Sangre(Volumen,vista.comboGrupoSang.getSelectedItem().toString(),vista.comboRH.getSelectedItem().toString());          
                             Almacen.UnidadesSangre.add(u);
-                            
+
                             //Prueba para vizualizar las unidades
                             System.out.println(Almacen.UnidadesSangre);
                             System.out.println("");
@@ -72,13 +76,14 @@ public class ControladorExtraccion {
         );
         this.vista.botonEliminar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int fila = vista.tblCitasRepo.getSelectedRow();
+                int fila = vista.tblExtRepo.getSelectedRow();
 
                 if (fila == -1) {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar alguna Extraccion");
                 } else {
-                    int valor = Integer.parseInt(vista.tblCitasRepo.getValueAt(fila, 0).toString());
+                    int valor = Integer.parseInt(vista.tblExtRepo.getValueAt(fila, 0).toString());
                     Repositorio.extracciones.eliminar(valor);
+                    modeloC.eliminarExtraccion(valor);
                     actualizarTabla();
                     System.out.println("Cita eliminada");
                     JOptionPane.showMessageDialog(null, "Extraccion eliminada");
@@ -87,12 +92,18 @@ public class ControladorExtraccion {
         }
         );
     }
-
-    public void actualizarTabla() {
+/*
+    public void actualizarTabla2() {
         //lo del jtable
         DefaultTableModel modelotabla = new DefaultTableModel(this.modelo.getDatos(), this.modelo.getCabecera());
-        this.vista.tblCitasRepo.setModel(modelotabla);
+        this.vista.tblExtRepo.setModel(modelotabla);
+    }*/
+    
+    public void actualizarTabla(){
+        this.vista.tblExtRepo.setModel(ConsultasExtraccion.listar());
+        this.vista.tblExtRepo.getTableHeader().setReorderingAllowed(false);//para que no se mueva
     }
+    
     public void limpiarCampos(){
         //fecha talla peso diagnostico tratamiento
         this.vista.txtFechaExtraccion.setText("");
@@ -104,7 +115,7 @@ public class ControladorExtraccion {
     public void iniciar() {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
-
+        this.vista.tblExtRepo.setEditingColumn(2);
 
         //lo del combobox donantes
         DefaultComboBoxModel modeloCboEmpleados = new DefaultComboBoxModel();

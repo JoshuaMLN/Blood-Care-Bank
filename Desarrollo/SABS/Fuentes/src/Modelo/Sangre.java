@@ -2,7 +2,7 @@
 package Modelo;
 
 
-public class UnidadSangre {
+public class Sangre {
     private float Volumen;
     private String GrupoSanguineo;
     private String Rh;
@@ -19,7 +19,7 @@ public class UnidadSangre {
 
     //hola4
 
-    public UnidadSangre(float Volumen, String GrupoSanguineo, String Rh) {
+    public Sangre(float Volumen, String GrupoSanguineo, String Rh) {
         this.Volumen = Volumen;
         this.GrupoSanguineo = GrupoSanguineo;
         this.Rh = Rh;

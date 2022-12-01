@@ -2,7 +2,8 @@
 package Controlador;
 
 import Datos.Repositorio;
-import Modelo.UnidadSangre;
+import Modelo.ConsultasSangre;
+import Modelo.Sangre;
 import Vista.frmInventario;
 import Vista.frmPrincipal;
 import java.awt.event.ActionEvent;
@@ -16,14 +17,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorInventario {
     private frmInventario vista;
-    private ArrayList<UnidadSangre> modelo;
+    private ArrayList<Sangre> modelo;
     
-    public ControladorInventario(frmInventario vista, ArrayList<UnidadSangre> modelo){
+    public ControladorInventario(frmInventario vista, ArrayList<Sangre> modelo){
         this.vista = vista;
         this.modelo = modelo;
         
                 
-        addRowToTblInventario();
+        //addRowToTblInventario();
         
         this.vista.btnRegresar.addActionListener(new ActionListener(){
             public void actionPerformed (ActionEvent e){
@@ -35,11 +36,16 @@ public class ControladorInventario {
         );
 
     }
-    
+    public void actualizarTabla() {
+          this.vista.tbl_Inventario.setModel(ConsultasSangre.listar());
+          this.vista.tbl_Inventario.getTableHeader().setReorderingAllowed(false);//para que no se mueva
+          //ConsultasMascotas.llenar();
+    }
+    /*
     public void addRowToTblInventario(){
         DefaultTableModel tblModel = (DefaultTableModel) vista.tbl_Inventario.getModel();
-        ArrayList<UnidadSangre> lista = modelo;
-        ArrayList<UnidadSangre> listaOrdenada = calcVolumenTotal(lista);
+        ArrayList<Sangre> lista = modelo;
+        ArrayList<Sangre> listaOrdenada = calcVolumenTotal(lista);
         Object rowData[] = new Object[3];
         
         for(int i = 0; i < listaOrdenada.size(); i++){
@@ -49,13 +55,15 @@ public class ControladorInventario {
             tblModel.addRow(rowData);
         }
     }
-    
+    */
     public void iniciar(){
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+        actualizarTabla();
     }
     
-    public ArrayList<UnidadSangre> calcVolumenTotal(ArrayList<UnidadSangre> unorderedList){
+    /*
+    public ArrayList<Sangre> calcVolumenTotal(ArrayList<Sangre> unorderedList){
         float volAPlus = 0, volBPlus = 0, volABPlus = 0, volOPlus = 0, volANega = 0, volBNega = 0, volABNega = 0, volONega = 0;
         
         for(int i = 0; i < unorderedList.size(); i++){
@@ -99,17 +107,18 @@ public class ControladorInventario {
         
         System.out.println(volONega);
         
-        ArrayList<UnidadSangre> orderedList = new ArrayList<UnidadSangre>();
+        ArrayList<Sangre> orderedList = new ArrayList<Sangre>();
         
-        orderedList.add(new UnidadSangre(volAPlus,"A","+"));
-        orderedList.add(new UnidadSangre(volANega,"A","-"));
-        orderedList.add(new UnidadSangre(volBPlus,"B","+"));
-        orderedList.add(new UnidadSangre(volBNega,"B","-"));
-        orderedList.add(new UnidadSangre(volABPlus,"AB","+"));
-        orderedList.add(new UnidadSangre(volABNega,"AB","-"));
-        orderedList.add(new UnidadSangre(volOPlus,"O","+"));
-        orderedList.add(new UnidadSangre(volONega,"O","-"));
+        orderedList.add(new Sangre(volAPlus,"A","+"));
+        orderedList.add(new Sangre(volANega,"A","-"));
+        orderedList.add(new Sangre(volBPlus,"B","+"));
+        orderedList.add(new Sangre(volBNega,"B","-"));
+        orderedList.add(new Sangre(volABPlus,"AB","+"));
+        orderedList.add(new Sangre(volABNega,"AB","-"));
+        orderedList.add(new Sangre(volOPlus,"O","+"));
+        orderedList.add(new Sangre(volONega,"O","-"));
         
         return orderedList;
     }
+*/
 }

@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class ConsultasSolicitud extends ConexionBaseDatos{
+
+public class ConsultasExtraccion extends ConexionBaseDatos{
     
     public static DefaultTableModel listar(){
         DefaultTableModel modelo = new DefaultTableModel(){
@@ -15,17 +16,17 @@ public class ConsultasSolicitud extends ConexionBaseDatos{
                 return false;
             }
         };
-        modelo.addColumn("Codigo");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Motivo");
-        modelo.addColumn("Grupo");
-        modelo.addColumn("Rh");
-        modelo.addColumn("Cantidad");
+        //no se edite
+        modelo.addColumn("id");
         modelo.addColumn("Fecha");
+        //modelo.addColumn("Donante");
+        modelo.addColumn("Volumen");
+        modelo.addColumn("Grupo");
+        modelo.addColumn("RH");
         
         Connection con=conectar();
         PreparedStatement ps=null;
-        String sql="SELECT * FROM solicitudes";
+        String sql="SELECT * FROM extracsangre";
         ResultSet rs;
         
         try {
@@ -54,18 +55,16 @@ public class ConsultasSolicitud extends ConexionBaseDatos{
         return modelo;
     }
     
-    public boolean registrarSolicitud(Solicitud solicitud){
-        PreparedStatement ps=null;
+    public boolean registrarExtraccion(ExtraccionSangre ext){
+        PreparedStatement ps = null;
         Connection con=conectar();
-        String sql = ("INSERT INTO solicitudes(nombre_soli,motivo_soli,grupo_soli,rh_soli,volumen_soli,fecha_soli) VALUES (?,?,?,?,?,?)");//sentencia_guardar
+        String sql = ("INSERT INTO extracsangre(fecha_extrac,vol_extrac,grupo_extrac,rh_extrac) VALUES (?,?,?,?)");//sentencia_guardar
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1,solicitud.getNombre());
-            ps.setString(2,solicitud.getMotivo());
-            ps.setString(3,solicitud.getGrupoSanguineo());
-            ps.setString(4,solicitud.getRh()); 
-            ps.setFloat(5,solicitud.getCantidad());
-            ps.setString(6,solicitud.getFecha()); 
+            ps.setString(1,ext.getFecha());
+            ps.setFloat(2,ext.getVolumen());
+            ps.setString(3,ext.getGrupoSanguineo());
+            ps.setString(4,ext.getRh()); 
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -80,13 +79,13 @@ public class ConsultasSolicitud extends ConexionBaseDatos{
         }
     }
     
-    public boolean eliminarSolicitud(int codSolicitud){
+    public boolean eliminarExtraccion(int codExtraccion){
         PreparedStatement ps=null;
         Connection con=conectar();
-        String sql = ("DELETE FROM solicitudes WHERE id_solicitud=? ");//sentencia_eliminar
+        String sql = ("DELETE FROM extracsangre WHERE id_extrac=? ");//sentencia_eliminar
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1,codSolicitud); //
+            ps.setInt(1,codExtraccion); //
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -100,4 +99,8 @@ public class ConsultasSolicitud extends ConexionBaseDatos{
             }
         }
     }
+    
+    
+
+    
 }
