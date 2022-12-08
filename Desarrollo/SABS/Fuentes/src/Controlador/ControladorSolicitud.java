@@ -97,6 +97,14 @@ public class ControladorSolicitud {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar una solicitud");
                 }else {
                     int valor = Integer.parseInt(vista.tbl_Solicitudes.getValueAt(fila, 0).toString());//codigo de la solicitud
+                    String tipo = vista.tbl_Solicitudes.getValueAt(fila, 3).toString();//codigo de la solicitud
+                    String rh = vista.tbl_Solicitudes.getValueAt(fila, 4).toString();//codigo de la solicitud
+                    int idSangre = modeloU.idSangre(tipo, rh);
+                    //System.out.println(idSangre);
+                    //System.out.println(tipo+rh);
+                    //modeloU.añadir(idSangre, codEditar);
+                    float volumenRegresa =Float.parseFloat(vista.tbl_Solicitudes.getValueAt(fila, 5).toString());//codigo de la solicitud
+                    modeloU.añadir(idSangre, volumenRegresa);
                     //Repositorio.solicitudes.eliminar(valor);
                     modeloC.eliminarSolicitud(valor);
                     actualizarTabla();//actualizamos

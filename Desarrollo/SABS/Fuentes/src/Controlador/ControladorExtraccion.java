@@ -85,7 +85,16 @@ public class ControladorExtraccion {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar alguna Extraccion");
                 } else {
                     int valor = Integer.parseInt(vista.tblExtRepo.getValueAt(fila, 0).toString());
-                    Repositorio.extracciones.eliminar(valor);
+                    String tipo = vista.tblExtRepo.getValueAt(fila, 3).toString();//codigo de la solicitud
+                    String rh = vista.tblExtRepo.getValueAt(fila, 4).toString();//codigo de la solicitud
+                    int idSangre = modeloU.idSangre(tipo, rh);
+                    System.out.println(idSangre);
+                    System.out.println(tipo+rh);
+                    //modeloU.añadir(idSangre, codEditar);
+                    float volumenRegresa =Float.parseFloat(vista.tblExtRepo.getValueAt(fila, 2).toString());//codigo de la solicitud
+                    modeloU.disminuir(idSangre, volumenRegresa);
+                    //Repositorio.extracciones.eliminar(valor);
+                    
                     modeloC.eliminarExtraccion(valor);
                     actualizarTabla();
                     System.out.println("Cita eliminada");
